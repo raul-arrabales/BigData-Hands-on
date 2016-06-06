@@ -161,3 +161,12 @@ step5sorted = step5inverse.sortByKey(ascending=False)
 
 step5sorted.take(10)
 
+# In one line:
+wordcounts = rdd2.map( lambda x: x.replace(',',' ').replace('.',' ').replace('-',' ').lower()) \
+        .flatMap(lambda x: x.split()) \
+        .map(lambda x: (x, 1)) \
+        .reduceByKey(lambda x,y:x+y) \
+        .map(lambda x:(x[1],x[0])) \
+        .sortByKey(False)
+        
+        
