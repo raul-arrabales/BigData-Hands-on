@@ -170,3 +170,9 @@ wordcounts = rdd2.map( lambda x: x.replace(',',' ').replace('.',' ').replace('-'
         .sortByKey(False)
         
         
+# Adding SQL Context
+
+from pyspark.sql import SQLContext
+sqlContext = SQLContext(sc)
+
+
