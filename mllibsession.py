@@ -32,7 +32,7 @@ def error(point):
   
 WSSSE = parsedData.map(lambda point: error(point)).reduce(lambda x, y: x + y)
 
-rint("Within Set Sum of Squared Error = " + str(WSSSE))
+print("Within Set Sum of Squared Error = " + str(WSSSE))
 
 
 # Saving and loading the model
