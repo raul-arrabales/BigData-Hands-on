@@ -28,7 +28,7 @@ clusters = KMeans.train(parsedData, 2, 10)
 # Evaluate the clustering
 def error(point):
   center = clusters.centers[clusters.predict(point)]
-  return sqrt(sum([x**2 for x in (point - center)]`
+  return sqrt(sum([x**2 for x in (point - center)]))
   
 WSSSE = parsedData.map(lambda point: error(point)).reduce(lambda x, y: x + y)
 
