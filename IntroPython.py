@@ -303,6 +303,18 @@ print(r)
 sum(foo) == r
 
 
-# In[ ]:
+
+print 'The sum of 1 and 1 is {0}'.format(1+1)
+
+# Import the regular expression library
+import re
+m = re.search('(?<=abc)def', 'abcdef')
+m.group(0)
+
+# Import the datetime library
+import datetime
+print 'This was last run on: {0}'.format(datetime.datetime.now())
+
+
 
 
