@@ -1,3 +1,11 @@
+# Setting up the SQL context for Spark
+
+# In CDH + Anaconda (after pyspark settings and sc):
+
+from pyspark.sql import SQLContext
+sqlContext = SQLContext(sc)
+
+
 # In Databricks CE Cloud: 
 
 from pyspark.sql import Row
