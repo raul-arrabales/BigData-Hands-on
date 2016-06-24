@@ -23,10 +23,25 @@ df2 = sqlContext.createDataFrame(datosAltura, ['nombre', 'altura'])
 
 print(df2.collect()) 
 
+# Inner Join:
 df3 = df1.join(df2, 'nombre')
 
 display(df3)
 
+
+df4 = df1.join(df2, 'nombre').select(df1.nombre, df2.altura)
+
+print(df4.collect())
+
+datosAltura = [('Raul', 176), ('Ana', 177), ('Juan', 182), ('Luisa', 168)]
+df2 = sqlContext.createDataFrame(datosAltura, ['nombre', 'altura'])
+
+df4 = df1.join(df2, 'nombre').select(df1.nombre, df2.altura)
+
+df5 = df1.join(df2, 'nombre').select('nombre', 'altura') 
+
+df6 = df1.join(df2, 'nombre', 'right_outer').select('nombre')
+print(df6.collect())
 
 
 
