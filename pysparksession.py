@@ -78,10 +78,4 @@ rdd = sc.textFile('/user/cloudera/quijotedata/quijote.txt')
 
 
         
-        
-# Adding SQL Context
-
-from pyspark.sql import SQLContext
-sqlContext = SQLContext(sc)
-
 
