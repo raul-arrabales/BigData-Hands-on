@@ -19,6 +19,11 @@
 # Kafka settings:
 # kafka-topics --create --zookeeper quickstart.cloudera:2181 --topic wordcounttopic --partitions 1 --replication-factor 1
 
+# Submit Spark Job:
+# spark-submit --master local[2] --conf "spark.dynamicAllocation.enabled=false" --jars /usr/lib/spark/lib/spark-examples.jar kafka_wordcount.py quickstart.cloudera:2181 wordcounttopic
+
+# Kafka producer (in another window)
+# kafka-console-producer --broker-list quickstart.cloudera:9092 --topic wordcounttopic
 
 import sys
 
