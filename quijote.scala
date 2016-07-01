@@ -24,6 +24,7 @@ val countWordsSort = countWords.sortByKey()
 // Save the TF table
 countWordsSort.saveAsTextFile(“wc-output”)
 
+
 /**
  * Term Frequency example with El Quijote
  * With Databrick CE Cloud mini-cluster
@@ -41,4 +42,12 @@ countWordsSort.saveAsTextFile(“wc-output”)
  countWords.count()
  val countWordsSort = countWords.sortByKey(ascending=true)
  countWordsSort.take(10)
+ 
+ # Sorting by frequency:
+ val inverted = countWordsSort.map( item => item.swap ).sortByKey(ascending=false)
+ inverted.take(10).foreach(a => println(a)) 
+ 
+ # Or:
+ countWordsSort.map( item => item.swap ).sortByKey(ascending=false).take(20).foreach(w => println(w)) 
+ 
  
