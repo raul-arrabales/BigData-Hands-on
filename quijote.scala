@@ -24,3 +24,21 @@ val countWordsSort = countWords.sortByKey()
 // Save the TF table
 countWordsSort.saveAsTextFile(“wc-output”)
 
+/**
+ * Term Frequency example with El Quijote
+ * With Databrick CE Cloud mini-cluster
+ * 
+ */
+ val textFile = sc.textFile("/FileStore/tables/zv0aggtc1466847515469/quijote_complete.txt")
+ val wordCounts = textFile.flatMap(line => line.split(" "))
+ wordCounts.count()
+ val filterWords = wordCounts.filter(word => word.length() > 0)
+ filterWords.count()
+ val mapWords = filterWords.map(word => (word, 1))
+ mapWords.take(100)
+ val countWords = mapWords.reduceByKey((a,b) => a + b )
+ countWords.take(30)
+ countWords.count()
+ val countWordsSort = countWords.sortByKey(ascending=true)
+ countWordsSort.take(10)
+ 
