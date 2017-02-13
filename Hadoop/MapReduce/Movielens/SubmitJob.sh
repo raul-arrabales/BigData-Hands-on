@@ -9,4 +9,5 @@ hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar \
 -file /root/raul/map.py \
 -file /root/raul/reduce.py \
 -mapper /root/raul/map.py \
+-combiner /root/raul/map.py \
 -reducer /root/raul/reduce.py    
