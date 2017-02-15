@@ -9,7 +9,15 @@ javac \
            /usr/hdp/2.5.0.0-1245/hadoop-mapreduce/commons-cli-1.2.jar \
 WordCount.java
 
+Build the jar (check jar permissions)
 jar -cvf WordCount.jar *.class 
+
+Submit the job
+export HADOOP_CLASSPATH=$JAVA_HOME/lib/tools.jar
+hadoop jar WordCount.jar WordCount /raul/quijote /raul/quijote/wc-out                                                    
+
+Clean up
+hadoop fs -rm -r /raul/quijote/wc-out  
 
 */ 
 
