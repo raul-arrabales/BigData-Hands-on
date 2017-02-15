@@ -1,0 +1,16 @@
+# Movielens Datasets
+https://grouplens.org/datasets/movielens/ 
+
+# MovieLens 10M Dataset
+# Stable benchmark dataset. 10 million ratings and 100,000 tag applications 
+# applied to 10,000 movies by 72,000 users. Released 1/2009.
+https://grouplens.org/datasets/movielens/10m/ 
+
+# Files download: 
+http://files.grouplens.org/datasets/movielens/ml-10m.zip 
+
+# Files format specification: 
+http://files.grouplens.org/datasets/movielens/ml-10m-README.html 
+
+
+
