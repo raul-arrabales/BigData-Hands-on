@@ -1,6 +1,19 @@
 // Adapted from
 // https://hadoop.apache.org/docs/r2.5.2/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html#Example:_WordCount_v1.0 
 
+/* Compiling in HDP 2.5:
+
+javac \
+-classpath /usr/hdp/2.5.0.0-1245/hadoop/hadoop-common-2.7.3.2.5.0.0-1245.jar:\
+           /usr/hdp/2.5.0.0-1245/hadoop-mapreduce/hadoop-mapreduce-client-core.jar:\
+           /usr/hdp/2.5.0.0-1245/hadoop-mapreduce/commons-cli-1.2.jar \
+WordCount.java
+
+jar -cvf WordCount.jar *.class 
+
+*/ 
+
+
 import java.io.IOException;
 import java.util.StringTokenizer;
 
