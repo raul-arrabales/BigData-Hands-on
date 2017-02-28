@@ -39,3 +39,20 @@ UsrRatingsCount.take(10)
 UsrRatingsCount = sqlContext.sql("SELECT uId, COUNT(*) FROM ratings GROUP BY uId ORDER BY COUNT(*) DESC")
 UsrRatingsCount.take(10)
 
+# And beter this way:
+UsrRatingsCount = sqlContext.sql("SELECT uId, COUNT(*) AS UserCount " +
+                                 "FROM ratings " +
+                                 "GROUP BY uId " +
+                                 "ORDER BY UserCount DESC")
+UsrRatingsCount.take(10)
+# [Row(uId=14463, _c1=5169),
+#  Row(uId=27468, _c1=4449),
+#  Row(uId=19635, _c1=4165),
+#  Row(uId=3817, _c1=4165),
+#  Row(uId=27584, _c1=3479),
+#  Row(uId=6757, _c1=3414),
+#  Row(uId=19379, _c1=3202),
+#  Row(uId=7795, _c1=3187),
+#  Row(uId=8811, _c1=3164),
+#  Row(uId=30723, _c1=3027)]
+
