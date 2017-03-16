@@ -4,3 +4,8 @@ gcloud dataproc clusters create birth_cluster
 # Set the Big Query + Spark virtual env. 
 virtualenv bq_plus_spark
 source bq_plus_spark/bin/activate
+
+# gcloud command update
+pip install --upgrade google-cloud
+
+
