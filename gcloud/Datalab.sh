@@ -14,7 +14,7 @@ gcloud config set compute/zone europe-west1-b
 datalab create datalabml1
 
 # If connection loss
-atalab connect datalabml1
+datalab connect datalabml1
 
 # To delete the instance
 datalab delete datalabml1
