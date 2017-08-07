@@ -16,13 +16,13 @@
 sudo /home/cloudera/cloudera-manager --force --express   
 # (remember less than 8GB is not supported, nor expected to work fine)
 
-#	Install Update Parcel from CDH 5.8 to CDH 5.8.0.1. 
+# Install Update Parcel from CDH 5.8 to CDH 5.8.0.1. 
 
-#	Instalar Anaconda Parcel (version 4.1.1): 
+# Install Anaconda Parcel (version 4.1.1): 
 # https://docs.continuum.io/anaconda/cloudera  
 
 # Force Python 2.7 also in local, apart from the cluster version. 
-#	Install Anaconda as pkg in home/cloudera
+# Install Anaconda as pkg in home/cloudera
 
 # Configure Python in local for v2.7:
 alias python=/home/cloudera/anaconda2/bin/python2.7 
