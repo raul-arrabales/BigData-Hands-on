@@ -24,12 +24,12 @@ sudo /home/cloudera/cloudera-manager --force --express
 # Force Python 2.7 also in local, apart from the cluster version. 
 #	Install Anaconda as pkg in home/cloudera
 
-#	Configure Python in local for v2.7:
+# Configure Python in local for v2.7:
 alias python=/home/cloudera/anaconda2/bin/python2.7 
 export PYSPARK_PYTHON=/home/cloudera/anaconda2/bin/python2.7
 export SPARK_HOME=/opt/cloudera/parcels/CDH-5.8.0-1.cdh5.8.0.p0.42/lib/spark
 
-#	Configure Jupyter for pyspark in the cluster:
+# Configure Jupyter for pyspark in the cluster:
 export PYSPARK_DRIVER_PYTHON=/opt/cloudera/parcels/Anaconda/bin/jupyter 
 export PYSPARK_DRIVER_PYTHON_OPTS="notebook --NotebookApp.open_browser=False --NotebookApp.ip='*' --NotebookApp.port=8880"
 export PYSPARK_PYTHON=/opt/cloudera/parcels/Anaconda/bin/python
