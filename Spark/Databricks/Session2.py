@@ -6,6 +6,51 @@
 from pyspark.sql import SQLContext, Row
 sqlContext = SQLContext.getOrCreate(sc.getOrCreate())
 
+# Creating a simple DataFrame programatically
+array = [Row(key="a", group="vowels", value=1),
+         Row(key="b", group="consonants", value=2),
+         Row(key="c", group="consonants", value=3),
+         Row(key="d", group="consonants", value=4),
+         Row(key="e", group="vowels", value=5)]
+dataframe = sqlContext.createDataFrame(sc.parallelize(array))
+dataframe.registerTempTable("PythonTestTable")
+
+# Visualize (in Databricks cloud - Display() )
+display(dataframe)
+
+# Creating more sample DataFrames:
+
+# Sample age data:
+datosEdad = [('Raul', 22), ('Ana', 32), ('Juan', 46)]
+df1 = sqlContext.createDataFrame(datosEdad, ['nombre', 'edad'])
+
+# Apply filter to age data:
+filtroEdad = df1.filter(df1.edad >= 30).collect()
+print filtroEdad
+display(filtroEdad)
+
+# Sample height data
+datosAltura = [('Raul', 176), ('Ana', 177), ('Juan', 182)]
+df2 = sqlContext.createDataFrame(datosAltura, ['nombre', 'altura'])
+print(df2.collect())
+
+# Join height and age data:
+df3 = df1.join(df2, 'nombre')
+display(df3)
+
+# Explore different queries
+df4 = df1.join(df2, 'nombre').select(df1.nombre, df2.altura)
+print(df4.collect())
+
+df5 = df1.join(df2, 'nombre').select('nombre', 'altura') 
+print(df5.collect())
+
+df6 = df1.join(df2, 'nombre', 'right_outer').select('nombre')
+print(df6.collect())
+
+
+# MOVIE RATINGS EXAMPLE:
+
 # Loading movies dataset as a set of rows
 movies = (
   sc.textFile('/FileStore/tables/y81un4d91488113985408/movies.dat')
@@ -66,89 +111,3 @@ UsrRatingsCount.take(10)
 
 
 
-datosEdad = [('Raul', 22), ('Ana', 32), ('Juan', 46)]
-df1 = sqlContext.createDataFrame(datosEdad, ['nombre', 'edad'])
-
-filtroEdad = df1.filter(df1.edad >= 30).collect()
-print filtroEdad
-
-display(filtroEdad)
-
-datosAltura = [('Raul', 176), ('Ana', 177), ('Juan', 182)]
-df2 = sqlContext.createDataFrame(datosAltura, ['nombre', 'altura'])
-
-print(df2.collect()) 
-
-# Inner Join:
-df3 = df1.join(df2, 'nombre')
-
-display(df3)
-
-
-df4 = df1.join(df2, 'nombre').select(df1.nombre, df2.altura)
-
-print(df4.collect())
-
-datosAltura = [('Raul', 176), ('Ana', 177), ('Juan', 182), ('Luisa', 168)]
-df2 = sqlContext.createDataFrame(datosAltura, ['nombre', 'altura'])
-
-df4 = df1.join(df2, 'nombre').select(df1.nombre, df2.altura)
-
-df5 = df1.join(df2, 'nombre').select('nombre', 'altura') 
-
-df6 = df1.join(df2, 'nombre', 'right_outer').select('nombre')
-print(df6.collect())
-
-
-# Generating Data:
-
-from faker import Factory
-fake = Factory.create()
-fake.seed(1234)
-
-# Each entry consists of last_name, first_name, ssn, job, and age (at least 1)
-from pyspark.sql import Row
-def fake_entry():
-  name = fake.name().split()
-  return Row(name[1], name[0], fake.ssn(), fake.job(), abs(2016 - fake.date_time().year) + 1)
-  
-# Create a helper function to call a function repeatedly
-def repeat(times, func, *args, **kwargs):
-    for _ in xrange(times):
-        yield func(*args, **kwargs)
-
-data = list(repeat(10000, fake_entry))
-
-data[0][0], data[0][1], data[0][2], data[0][3], data[0][4]
-
-len(data)
-
-help(sqlContext.createDataFrame)
-
-dataDF = sqlContext.createDataFrame(data, ('last_name', 'first_name', 'ssn', 'occupation', 'age'))
-
-dataDF.printSchema()
-
-sqlContext.registerDataFrameAsTable(dataDF, 'dataframe')
-
-help(dataDF)
-
-dataDF.rdd.getNumPartitions()
-
-newDF = dataDF.distinct().select('*')
-newDF.explain(True)
-
-dataDF.show(n=30, truncate=False)
-
-display(subDF)
-
-filteredDF = dataDF.filter(dataDF.age < 10)
-filteredDF.show(truncate=False)
-filteredDF.count()
-
-display(dataDF.orderBy('age').take(5))
-
-print dataDF.count()
-print dataDF.distinct().count()
-
-dataDF.groupBy('occupation').count().show(truncate=False)
