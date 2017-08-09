@@ -2,6 +2,9 @@
 # Databricks CE Cloud Practice
 # Raul Arrabales / Conscious-Robots.com 
 
+# See files in DBFS
+dbutils.fs.ls('/') 
+
 # Simple clustering example:
 from pyspark.mllib.clustering import KMeans, KMeansModel
 from numpy import array
