@@ -29,4 +29,35 @@ len(data)
 dataDF = sqlContext.createDataFrame(data, ('last_name', 'first_name', 'ssn', 'occupation', 'age'))
 dataDF.printSchema()
 
+# Check DF
+print dataDF.count()
+print dataDF.distinct().count()
+
+# Check DataFrame (RDD) partitions
+dataDF.rdd.getNumPartitions()
+
+# See Spark planning: 
+newDF = dataDF.distinct().select('*')
+newDF.explain(True)
+
+# See the data
+dataDF.show(n=30, truncate=False)
+display(dataDF)
+
+# Applying filters
+filteredDF = dataDF.filter(dataDF.age < 10)
+filteredDF.show(truncate=False)
+filteredDF.count()
+
+# DF API Queries
+display(dataDF.orderBy('age').take(5))
+dataDF.groupBy('occupation').count().show(truncate=False)
+dataDF.filter(dataDF.age < 18).groupBy('occupation').count().show(truncate=False)
+
+# Register the DataFrame as table for SQL usage:
+sqlContext.registerDataFrameAsTable(dataDF, 'people') 
+
+# SQL queries
+%sql select * from people where people.age > 46 
+%sql select count(ssn) as number, occupation from people where age > 18 group by occupation 
 
