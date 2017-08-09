@@ -17,21 +17,22 @@ from pyspark.ml.clustering import KMeans
 # This is the old way, load into RDD
 # dataset = sc.textFile('/FileStore/tables/1x1xr57q1502297004187/kmeans_data.txt')
 
-# Reading CSV 
+# Reading CSV to a df
+kmeans_df = sqlContext.read.format("com.databricks.spark.csv").option("header", "false").option("delimiter"," ").load("/FileStore/tables/1x1xr57q1502297004187/kmeans_data.txt")
+
+# Check schema
+kmeans_df.printSchema()
+
+# Check data
+display(kmeans_df) 
+
+# Need to infer correctly the schema. Data are doubles, not string
 kmeans_df = sqlContext.read.format("com.databricks.spark.csv") \
-  .option("header", "false").option("delimiter"," ") \
+  .option("header", "false").option("delimiter"," ").option("inferschema", "true") \
   .load("/FileStore/tables/1x1xr57q1502297004187/kmeans_data.txt")
   
 
-# Simple clustering example:
-from pyspark.mllib.clustering import KMeans, KMeansModel
-from numpy import array
-from math import sqrt 
+  
 
-data = sc.textFile("data/kmeans_data.txt")
-
-# Load and parse input data
-data = sc.textFile("data/kmeans_data.txt")
-parsedData = data.map(lambda line: array([float(x) for x in line.split(' ')]))
 
 
