@@ -31,6 +31,33 @@ kmeans_df = sqlContext.read.format("com.databricks.spark.csv") \
   .option("header", "false").option("delimiter"," ").option("inferschema", "true") \
   .load("/FileStore/tables/1x1xr57q1502297004187/kmeans_data.txt")
   
+# Prepare data for training (see later the explanation about ML Pipelines)
+from pyspark.ml.feature import VectorAssembler
+from pyspark.ml import Pipeline
+
+assembler = VectorAssembler(inputCols=["C0","C1","C2"], outputCol="features") 
+assembler.transform(kmeans_df)
+
+# Create the KMeans model
+kmeans_estimator = KMeans().setFeaturesCol("features").setPredictionCol("prediction")
+    
+# Pipeline stages definition
+pipeline = Pipeline(stages=[assembler, kmeans_estimator])
+
+# Pipeline training
+model = pipeline.fit(kmeans_df)
+
+# Get the results: 
+results = model.transform(kmeans_df)
+
+# Check results:
+display(results) 
+
+
+
+
+
+  
 
   
 
