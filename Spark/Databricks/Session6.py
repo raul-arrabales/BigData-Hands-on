@@ -96,3 +96,11 @@ for i in range(0,knum):
     customerCluster[str(i)]= tmp
     print "Cluster"+str(i)
     customerCluster[str(i)].show(3)
+
+    
+dfc = sqlContext.sql("select avg(stars), avg(review_count) from Cluster0")
+dfc = dfc.union(sqlContext.sql("select avg(stars), avg(review_count) from Cluster1"))
+dfc = dfc.union(sqlContext.sql("select avg(stars), avg(review_count) from Cluster2"))
+dfc = dfc.union(sqlContext.sql("select avg(stars), avg(review_count) from Cluster3"))
+dfc = dfc.union(sqlContext.sql("select avg(stars), avg(review_count) from Cluster4"))
+display(dfc)
