@@ -35,7 +35,7 @@ kmeans_df = sqlContext.read.format("com.databricks.spark.csv") \
 from pyspark.ml.feature import VectorAssembler
 from pyspark.ml import Pipeline
 
-assembler = VectorAssembler(inputCols=["C0","C1","C2"], outputCol="features") 
+assembler = VectorAssembler(inputCols=["_c0","_c1","_c2"], outputCol="features") 
 assembler.transform(kmeans_df)
 
 # Create the KMeans model
