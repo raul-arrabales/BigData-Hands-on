@@ -1,0 +1,2088 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "IA_ML_BD_May19.ipynb",
+      "version": "0.3.2",
+      "provenance": []
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "-5xj9cq1G3F5",
+        "colab_type": "text"
+      },
+      "source": [
+        "<div style=\"text-align:center\">\n",
+        "​\n",
+        "<center><img height=\"200\" src=\https://github.com/raul-arrabales/web-experiments/blob/master/assets/Serendeepia_logo_name.png?raw=true">\n",
+        "<h1>Master Class - Analítica Avanzada</h1>\n",
+        "<h2>Inteligencia Artificial | Aprendizaje Automático | Big Data</h2>\n",
+        "<h3>Mayo de 2019</h3>\n",
+        "<h3>Dr. Raúl Arrabales Moreno</h3> \n",
+        "  \n",
+        "raul.arrabales@serendeepia.com\n",
+        "​\n",
+        "</center>\n",
+        "</div>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "WvBsL2NPGWPZ",
+        "colab_type": "text"
+      },
+      "source": [
+        "# Inicio"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "-VNcWf6wrzVM",
+        "colab_type": "text"
+      },
+      "source": [
+        "## Pre-Presentación"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "-2NbTFwEnPhh",
+        "colab_type": "code",
+        "outputId": "008ce496-4496-413c-ac6f-85a046443496",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 50
+        }
+      },
+      "source": [
+        "# Saludar y provocar debate sobre ingeniería y productos software\n",
+        "\n",
+        "print(\"Buenos días.\")\n",
+        "print(\"Esta presentación es ejecutable y por lo tanto puede tener errores, ¿o no?\")"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Buenos días.\n",
+            "Esta presentación es ejecutable y por lo tanto puede tener errores, ¿o no?\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "6RVIrVWQrrx8",
+        "colab_type": "code",
+        "outputId": "e19ba080-3aec-44f9-9e6f-af6a8d9f0f1d",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 74
+        }
+      },
+      "source": [
+        "# Saludar y provocar debate sobre ingeniería y productos software \n",
+        "# (esta vez en HTML, por si la letra no se ve bien)\n",
+        "\n",
+        "from IPython.display import HTML\n",
+        "HTML(\"<h1 style='color:blue'>¡Buenos días!</h1>\")"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/html": [
+              "<h1 style='color:blue'>¡Buenos días!</h1>"
+            ],
+            "text/plain": [
+              "<IPython.core.display.HTML object>"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 13
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "qiHlB1V7sMMM",
+        "colab_type": "code",
+        "outputId": "ade6c763-4b02-460d-8fe7-2fa2e970c266",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 64
+        }
+      },
+      "source": [
+        "# Debate sobre \"Powerpoint\" Versus Implementación\n",
+        "\n",
+        "HTML(\"<h2 style='color:red'>Esta presentación es ejecutable y por lo tanto puede tener errores, ¿o no?</h2>\")"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/html": [
+              "<h2 style='color:red'>Esta presentación es ejecutable y por lo tanto puede tener errores, ¿o no?</h2>"
+            ],
+            "text/plain": [
+              "<IPython.core.display.HTML object>"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 14
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "UrjegGlLLwzY",
+        "colab_type": "code",
+        "outputId": "25b6002d-07e3-4511-ef7f-579e7880a23a",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 64
+        }
+      },
+      "source": [
+        "# Debate sobre \"las modas tecnológicas\"\n",
+        "\n",
+        "HTML(\"<h2 style='color:brown'>¿Por qué estamos usando <b><i>Python</b></i> y no otro lenguaje?</h2>\")"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/html": [
+              "<h2 style='color:brown'>¿Por qué estamos usando <b><i>Python</b></i> y no otro lenguaje?</h2>"
+            ],
+            "text/plain": [
+              "<IPython.core.display.HTML object>"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 16
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "uWtOJ1tsvcQb",
+        "colab_type": "code",
+        "outputId": "8b0a5e4b-b441-42f7-84a4-2a60698b9810",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 64
+        }
+      },
+      "source": [
+        "HTML(\"<h2 style='color:red'>¿Es lo más importante la tecnología que usamos?</h2>\")"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/html": [
+              "<h2 style='color:red'>¿Es lo más importante la tecnología que usamos?</h2>"
+            ],
+            "text/plain": [
+              "<IPython.core.display.HTML object>"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 45
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "SECc5Jnkvp8B",
+        "colab_type": "text"
+      },
+      "source": [
+        "- Los proveedores nos venden *frameworks*.\n",
+        "- Hay tecnologías y herramientas de moda. \n",
+        "- Las herramientas cambian cada pocos meses. \n",
+        "- ¿Cómo nos posicionamos nosotros?\n",
+        "- ¿Necesitamos entender lo que hay por debajo? \n",
+        "- ¿Cómo nos orientamos en este contexto?"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "P6UFCUbLtAOM",
+        "colab_type": "text"
+      },
+      "source": [
+        "## Ponente"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "c9m1UooNClVI",
+        "colab_type": "text"
+      },
+      "source": [
+        " <p align=\"center\">\n",
+        "   <font size=\"4\">\n",
+        "<img  src=\"https://github.com/raul-arrabales/web-experiments/blob/master/assets/Serendeepia_logo_name.png?raw=true\" align=\"center\" Width=\"300px\"><br>\n",
+        "  <i>Artificial Intelligence solutions for your business<br>based on the state of the art research</i><br>&nbsp;\n",
+        "  </font>\n",
+        "  </p>\n",
+        "  <hr>\n",
+        "  <p align=\"left\"><img  src=\"http://www.conscious-robots.com/es/wp-content/uploads/2018/08/Raul_Ago_2018_pos3_v2-225x300.jpg\" height=\"200px\" align=\"left\" hspace=\"20px\"> \n",
+        " <font size=\"3\">\n",
+        "   <b>Raúl Arrabales Moreno</b> es doctor en Inteligencia Artificial, psicólogo, ingeniero en informática, MBA.<br>\n",
+        "  Arrabales cuenta con una experiencia profesional de 19 años trabajando en diversos ámbitos: en el académico como docente e investigador y en la empresa como gerente, jefe de proyecto, consultor tecnológico y estratégico.<br>\n",
+        "   Arrabales ha trabajado principalmente en el sector de los contenidos digitales para varias compañías internacionales como <b>IBM, Arris, Orange, Altran y Accenture</b>. Actualmente es Co-Fundador en Serendeepia y Director de Inteligencia Artificial / Neurociencia Cognitiva en Psicobōtica.</font></p><br>\n",
+        " <hr>\n",
+        "\n",
+        "\n"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "kyRicFe1tME8",
+        "colab_type": "text"
+      },
+      "source": [
+        "## Contenidos"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "eb5Db0gPVpml",
+        "colab_type": "text"
+      },
+      "source": [
+        "*   **1. Desmitificación de términos.**\n",
+        "\n",
+        "*   **2. El perfil *Data Scientist*.**\n",
+        "\n",
+        "*  **3. Ciclo de Vida: Piloto de Analítica Avanzada.**\n",
+        "\n",
+        "*  **4. Conclusiones**\n",
+        "\n",
+        "\n",
+        "\n",
+        "\n",
+        "\n"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "qj1EWrFcHdlB",
+        "colab_type": "text"
+      },
+      "source": [
+        "### En detalle:\n",
+        "*   **1. Desmitificación de términos.**\n",
+        "  * ¿Qué es un \"Big Data\"?\n",
+        "  * ¿Qué es Inteligencia Artificial?\n",
+        "  * ¿Qué es \"Machine Learning\"?\n",
+        "  * ¿Qué es \"Deep Learning\"?\n",
+        "*   **2. El perfil *Data Scientist*.**\n",
+        "  * ¿Qué es un *Data Scientist*?\n",
+        "  * Citizen *Data Scientist*\n",
+        "  * Ingeniero de Datos. \n",
+        "*  **3. Ciclo de Vida: Piloto de Analítica Avanzada.**\n",
+        "  * Definición del caso de uso. \n",
+        "  * Diseño del MVP. \n",
+        "  * Ingesta de los datos.\n",
+        "  * Calidad del dato. \n",
+        "  * Enriquecimiento. \n",
+        "  * Pre-Procesamiento. \n",
+        "  * Vectores de características.\n",
+        "  * Modelado predictivo.\n",
+        "  * Evaluación de los modelos. \n",
+        "  * Ejecución del piloto. \n",
+        "  * Productivización del modelo. \n",
+        "  * Despliegue. \n",
+        "  * Mantenimiento y aprendizaje continuo. \n",
+        "*  **4. Conclusiones**\n",
+        "  * Lo más importante para que un modelo funcione.  \n",
+        "  * Cultura de la organización. \n",
+        "  * Tuit final. \n"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "2tT0WHBDtPLU",
+        "colab_type": "text"
+      },
+      "source": [
+        "# Desmitificación de Términos"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "mXZTW17qIFLB",
+        "colab_type": "text"
+      },
+      "source": [
+        "## BIG DATA"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "3lmvKdoAXMSN",
+        "colab_type": "text"
+      },
+      "source": [
+        "### Dicen que *Big Data* es:\n",
+        "- **Volumen.** \n",
+        "- **Variedad.**\n",
+        "- **Velocidad.**\n",
+        "- (Valor).\n",
+        "- (Veracidad).\n",
+        "- (Validez).\n",
+        "- (Vulnerabilidad).\n",
+        "- (Volatilidad).\n",
+        "- (Visualizazión).\n",
+        "- (Viscosidad). *WTF!*\n",
+        "\n",
+        "### ¡No confundir Arquitecturas Big Data con \"Big Data\"!"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "UnSGRjkmZ3Z0",
+        "colab_type": "text"
+      },
+      "source": [
+        "### Quiero un *Data Lake* (arquitecturas clúster) para: \n",
+        "- Tener **todos los datos** centralizados en el mismo sitio (sin silos). \n",
+        "  - VOLUMEN\n",
+        "  - VARIEDAD\n",
+        "- Y añadir también los nuevos datos **desestructurados**.\n",
+        "  - VARIEDAD\n",
+        "- Poder **procesar** todos los datos sin problemas. \n",
+        "  - VOLUMEN, VELOCIDAD.\n",
+        "- Poder **escalar** sin problemas. \n",
+        "  - VOLUMEN, VELOCIDAD."
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "q4tDMIwKxaqh",
+        "colab_type": "text"
+      },
+      "source": [
+        "### Gobierno del *Data Lake*: \n",
+        "- Tener **todas las fuentes integradas**: \n",
+        "  - CALIDAD DEL DATO.\n",
+        "  - GESTIÓN DEL DATO. \n",
+        "  - TRAZABILIDAD. \n",
+        "  - SEGURIDAD y VALIDEZ. "
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "GUb_gh_2Y63U",
+        "colab_type": "code",
+        "outputId": "17363d0e-3a2e-455b-c988-4d43b902ac96",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 170
+        }
+      },
+      "source": [
+        "# Vamos a crear un conjunto de datos (FAKE, que está de moda, y así nadie nos denuncia)\n",
+        "# Debate: ¿Quien decide en la organización qué bibliotecas se usan y quién da soporte?\n",
+        "\n",
+        "!pip install faker"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Collecting faker\n",
+            "\u001b[?25l  Downloading https://files.pythonhosted.org/packages/52/1a/930431923062857520bae512101a648ef528cd327583fda38d9e76fab5ce/Faker-1.0.7-py2.py3-none-any.whl (874kB)\n",
+            "\u001b[K     |████████████████████████████████| 880kB 2.8MB/s \n",
+            "\u001b[?25hRequirement already satisfied: python-dateutil>=2.4 in /usr/local/lib/python3.6/dist-packages (from faker) (2.5.3)\n",
+            "Requirement already satisfied: text-unidecode==1.2 in /usr/local/lib/python3.6/dist-packages (from faker) (1.2)\n",
+            "Requirement already satisfied: six>=1.10 in /usr/local/lib/python3.6/dist-packages (from faker) (1.12.0)\n",
+            "Installing collected packages: faker\n",
+            "Successfully installed faker-1.0.7\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "5S8D8XaotTgc",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "# Generador de datos personales falsos\n",
+        "\n",
+        "from faker import Faker\n",
+        "import pandas as pd\n",
+        "import random\n",
+        "\n",
+        "fake = Faker('es_ES')\n",
+        "def create_rows(num=1):\n",
+        "        output = [{\"name\":fake.name(),\n",
+        "                   \"address\":fake.address(),\n",
+        "                   \"name\":fake.name(),\n",
+        "                   \"email\":fake.email(),\n",
+        "                   \"bs\":fake.bs(),\n",
+        "                   \"address\":fake.address(),\n",
+        "                   \"city\":fake.city(),\n",
+        "                   \"state\":fake.state(),\n",
+        "                   \"date_time\":fake.date_time(),\n",
+        "                   \"paragraph\":fake.paragraph(),\n",
+        "                   \"Conrad\":fake.catch_phrase(),\n",
+        "                   \"randomdata\":random.randint(1000,2000)} for x in range(num)]\n",
+        "        return output"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "oHgxjPidbD7U",
+        "colab_type": "text"
+      },
+      "source": [
+        "- Necesito **Velocidad**: para cargar, procesar --> Obtener los *insights* a tiempo.\n",
+        "- Necesito **Volumen** si tengo millones y millones de datos. \n",
+        "- Necesito **Redundancia**, **Robustez** y **Tolerancia a Fallos** si no quiero tener problemas graves. "
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "36ONCIpHY4qc",
+        "colab_type": "code",
+        "outputId": "519d4fa5-b12f-4d2d-a806-156ddf7884c2",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 50
+        }
+      },
+      "source": [
+        "# Creamos un DataFrame con 5.000 clientes\n",
+        "\n",
+        "%%time\n",
+        "df = pd.DataFrame(create_rows(5000))"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "CPU times: user 7.92 s, sys: 20.7 ms, total: 7.94 s\n",
+            "Wall time: 7.95 s\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "4RBNQMfLZdOL",
+        "colab_type": "code",
+        "outputId": "39fc4e78-e79b-4af5-a250-384fde9a2e1d",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 584
+        }
+      },
+      "source": [
+        "# Ver una muestra de 5 clientes:\n",
+        "df.sample(5)"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/html": [
+              "<div>\n",
+              "<style scoped>\n",
+              "    .dataframe tbody tr th:only-of-type {\n",
+              "        vertical-align: middle;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe tbody tr th {\n",
+              "        vertical-align: top;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe thead th {\n",
+              "        text-align: right;\n",
+              "    }\n",
+              "</style>\n",
+              "<table border=\"1\" class=\"dataframe\">\n",
+              "  <thead>\n",
+              "    <tr style=\"text-align: right;\">\n",
+              "      <th></th>\n",
+              "      <th>Conrad</th>\n",
+              "      <th>address</th>\n",
+              "      <th>bs</th>\n",
+              "      <th>city</th>\n",
+              "      <th>date_time</th>\n",
+              "      <th>email</th>\n",
+              "      <th>name</th>\n",
+              "      <th>paragraph</th>\n",
+              "      <th>randomdata</th>\n",
+              "      <th>state</th>\n",
+              "    </tr>\n",
+              "  </thead>\n",
+              "  <tbody>\n",
+              "    <tr>\n",
+              "      <th>2301</th>\n",
+              "      <td>Reduced demand-driven database</td>\n",
+              "      <td>Vial Angela Fuster 6 Puerta 6 \\nGuipúzcoa, 13255</td>\n",
+              "      <td>transition open-source bandwidth</td>\n",
+              "      <td>Guipúzcoa</td>\n",
+              "      <td>1991-10-19 04:02:04</td>\n",
+              "      <td>jamigo@montoya.com</td>\n",
+              "      <td>Joaquin Tolosa Torrens</td>\n",
+              "      <td>Accusamus occaecati labore tenetur commodi ear...</td>\n",
+              "      <td>1365</td>\n",
+              "      <td>Murcia</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>3783</th>\n",
+              "      <td>Reactive multi-tasking data-warehouse</td>\n",
+              "      <td>Glorieta Mónica Rozas 74 Piso 4 \\nZamora, 58276</td>\n",
+              "      <td>strategize revolutionary ROI</td>\n",
+              "      <td>Granada</td>\n",
+              "      <td>1970-04-11 20:31:05</td>\n",
+              "      <td>silvia42@yahoo.com</td>\n",
+              "      <td>Lourdes Sosa Torrents</td>\n",
+              "      <td>Accusamus excepturi recusandae sapiente aperia...</td>\n",
+              "      <td>1585</td>\n",
+              "      <td>Asturias</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>114</th>\n",
+              "      <td>Expanded 6thgeneration architecture</td>\n",
+              "      <td>Urbanización de Ángel Madrid 5 Apt. 44 \\nGrana...</td>\n",
+              "      <td>revolutionize sticky markets</td>\n",
+              "      <td>Guadalajara</td>\n",
+              "      <td>1995-10-30 15:15:09</td>\n",
+              "      <td>alejandra09@roig-llado.com</td>\n",
+              "      <td>Joan Iborra Velázquez</td>\n",
+              "      <td>Repellendus quas ipsam aliquid dolore cum. Vol...</td>\n",
+              "      <td>1707</td>\n",
+              "      <td>Ourense</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>390</th>\n",
+              "      <td>Ameliorated clear-thinking attitude</td>\n",
+              "      <td>Callejón Jose Ramon Tovar 3 Puerta 3 \\nCastell...</td>\n",
+              "      <td>cultivate dot-com paradigms</td>\n",
+              "      <td>Madrid</td>\n",
+              "      <td>1997-04-27 21:56:25</td>\n",
+              "      <td>sebastian78@quintanilla-enriquez.biz</td>\n",
+              "      <td>Silvia Peñas Solana</td>\n",
+              "      <td>Distinctio labore natus minus.</td>\n",
+              "      <td>1053</td>\n",
+              "      <td>Navarra</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>265</th>\n",
+              "      <td>User-centric modular definition</td>\n",
+              "      <td>Plaza Jose Angel Perelló 992 Puerta 2 \\nMelill...</td>\n",
+              "      <td>leverage ubiquitous e-markets</td>\n",
+              "      <td>Segovia</td>\n",
+              "      <td>1999-06-09 18:04:11</td>\n",
+              "      <td>sferrera@gmail.com</td>\n",
+              "      <td>Emilia de Pla</td>\n",
+              "      <td>Id sunt impedit architecto veritatis. Rem quas...</td>\n",
+              "      <td>1623</td>\n",
+              "      <td>Girona</td>\n",
+              "    </tr>\n",
+              "  </tbody>\n",
+              "</table>\n",
+              "</div>"
+            ],
+            "text/plain": [
+              "                                     Conrad  ...     state\n",
+              "2301         Reduced demand-driven database  ...    Murcia\n",
+              "3783  Reactive multi-tasking data-warehouse  ...  Asturias\n",
+              "114     Expanded 6thgeneration architecture  ...   Ourense\n",
+              "390     Ameliorated clear-thinking attitude  ...   Navarra\n",
+              "265         User-centric modular definition  ...    Girona\n",
+              "\n",
+              "[5 rows x 10 columns]"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 32
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "kKxL-T3SdGHM",
+        "colab_type": "code",
+        "outputId": "145739e6-7283-44d6-ca85-7c6bafb5d064",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 286
+        }
+      },
+      "source": [
+        "# Hacer análisis descriptivo\n",
+        "df.describe()"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/html": [
+              "<div>\n",
+              "<style scoped>\n",
+              "    .dataframe tbody tr th:only-of-type {\n",
+              "        vertical-align: middle;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe tbody tr th {\n",
+              "        vertical-align: top;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe thead th {\n",
+              "        text-align: right;\n",
+              "    }\n",
+              "</style>\n",
+              "<table border=\"1\" class=\"dataframe\">\n",
+              "  <thead>\n",
+              "    <tr style=\"text-align: right;\">\n",
+              "      <th></th>\n",
+              "      <th>randomdata</th>\n",
+              "    </tr>\n",
+              "  </thead>\n",
+              "  <tbody>\n",
+              "    <tr>\n",
+              "      <th>count</th>\n",
+              "      <td>5000.00000</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>mean</th>\n",
+              "      <td>1495.14080</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>std</th>\n",
+              "      <td>290.09231</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>min</th>\n",
+              "      <td>1000.00000</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>25%</th>\n",
+              "      <td>1246.00000</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>50%</th>\n",
+              "      <td>1494.00000</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>75%</th>\n",
+              "      <td>1751.00000</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>max</th>\n",
+              "      <td>2000.00000</td>\n",
+              "    </tr>\n",
+              "  </tbody>\n",
+              "</table>\n",
+              "</div>"
+            ],
+            "text/plain": [
+              "       randomdata\n",
+              "count  5000.00000\n",
+              "mean   1495.14080\n",
+              "std     290.09231\n",
+              "min    1000.00000\n",
+              "25%    1246.00000\n",
+              "50%    1494.00000\n",
+              "75%    1751.00000\n",
+              "max    2000.00000"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 33
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "dIKNRMVmde9E",
+        "colab_type": "code",
+        "outputId": "2abb90b5-e513-44f6-996b-c343144c8a5c",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 375
+        }
+      },
+      "source": [
+        "# Consultas y estadística descriptiva\n",
+        "\n",
+        "df.groupby('state')['randomdata'].describe().sample(10)"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/html": [
+              "<div>\n",
+              "<style scoped>\n",
+              "    .dataframe tbody tr th:only-of-type {\n",
+              "        vertical-align: middle;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe tbody tr th {\n",
+              "        vertical-align: top;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe thead th {\n",
+              "        text-align: right;\n",
+              "    }\n",
+              "</style>\n",
+              "<table border=\"1\" class=\"dataframe\">\n",
+              "  <thead>\n",
+              "    <tr style=\"text-align: right;\">\n",
+              "      <th></th>\n",
+              "      <th>count</th>\n",
+              "      <th>mean</th>\n",
+              "      <th>std</th>\n",
+              "      <th>min</th>\n",
+              "      <th>25%</th>\n",
+              "      <th>50%</th>\n",
+              "      <th>75%</th>\n",
+              "      <th>max</th>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>state</th>\n",
+              "      <th></th>\n",
+              "      <th></th>\n",
+              "      <th></th>\n",
+              "      <th></th>\n",
+              "      <th></th>\n",
+              "      <th></th>\n",
+              "      <th></th>\n",
+              "      <th></th>\n",
+              "    </tr>\n",
+              "  </thead>\n",
+              "  <tbody>\n",
+              "    <tr>\n",
+              "      <th>Santa Cruz de Tenerife</th>\n",
+              "      <td>114.0</td>\n",
+              "      <td>1474.131579</td>\n",
+              "      <td>311.605336</td>\n",
+              "      <td>1007.0</td>\n",
+              "      <td>1191.00</td>\n",
+              "      <td>1449.5</td>\n",
+              "      <td>1780.25</td>\n",
+              "      <td>1980.0</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>Guadalajara</th>\n",
+              "      <td>96.0</td>\n",
+              "      <td>1532.708333</td>\n",
+              "      <td>294.941668</td>\n",
+              "      <td>1015.0</td>\n",
+              "      <td>1292.25</td>\n",
+              "      <td>1585.5</td>\n",
+              "      <td>1774.00</td>\n",
+              "      <td>1993.0</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>Las Palmas</th>\n",
+              "      <td>108.0</td>\n",
+              "      <td>1534.851852</td>\n",
+              "      <td>282.516324</td>\n",
+              "      <td>1003.0</td>\n",
+              "      <td>1287.25</td>\n",
+              "      <td>1616.0</td>\n",
+              "      <td>1793.25</td>\n",
+              "      <td>1985.0</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>Málaga</th>\n",
+              "      <td>95.0</td>\n",
+              "      <td>1538.094737</td>\n",
+              "      <td>298.804927</td>\n",
+              "      <td>1012.0</td>\n",
+              "      <td>1298.00</td>\n",
+              "      <td>1534.0</td>\n",
+              "      <td>1811.00</td>\n",
+              "      <td>2000.0</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>La Rioja</th>\n",
+              "      <td>81.0</td>\n",
+              "      <td>1447.148148</td>\n",
+              "      <td>304.833853</td>\n",
+              "      <td>1001.0</td>\n",
+              "      <td>1196.00</td>\n",
+              "      <td>1400.0</td>\n",
+              "      <td>1716.00</td>\n",
+              "      <td>1997.0</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>Barcelona</th>\n",
+              "      <td>91.0</td>\n",
+              "      <td>1473.000000</td>\n",
+              "      <td>308.827244</td>\n",
+              "      <td>1007.0</td>\n",
+              "      <td>1230.00</td>\n",
+              "      <td>1414.0</td>\n",
+              "      <td>1766.00</td>\n",
+              "      <td>2000.0</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>Cantabria</th>\n",
+              "      <td>93.0</td>\n",
+              "      <td>1508.989247</td>\n",
+              "      <td>293.088037</td>\n",
+              "      <td>1011.0</td>\n",
+              "      <td>1233.00</td>\n",
+              "      <td>1528.0</td>\n",
+              "      <td>1760.00</td>\n",
+              "      <td>1992.0</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>Ciudad</th>\n",
+              "      <td>105.0</td>\n",
+              "      <td>1493.428571</td>\n",
+              "      <td>273.581828</td>\n",
+              "      <td>1004.0</td>\n",
+              "      <td>1266.00</td>\n",
+              "      <td>1457.0</td>\n",
+              "      <td>1710.00</td>\n",
+              "      <td>1996.0</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>Granada</th>\n",
+              "      <td>92.0</td>\n",
+              "      <td>1497.815217</td>\n",
+              "      <td>277.937811</td>\n",
+              "      <td>1007.0</td>\n",
+              "      <td>1255.00</td>\n",
+              "      <td>1508.0</td>\n",
+              "      <td>1734.75</td>\n",
+              "      <td>2000.0</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>Lugo</th>\n",
+              "      <td>81.0</td>\n",
+              "      <td>1488.197531</td>\n",
+              "      <td>307.931503</td>\n",
+              "      <td>1009.0</td>\n",
+              "      <td>1235.00</td>\n",
+              "      <td>1473.0</td>\n",
+              "      <td>1746.00</td>\n",
+              "      <td>1997.0</td>\n",
+              "    </tr>\n",
+              "  </tbody>\n",
+              "</table>\n",
+              "</div>"
+            ],
+            "text/plain": [
+              "                        count         mean         std  ...     50%      75%     max\n",
+              "state                                                   ...                         \n",
+              "Santa Cruz de Tenerife  114.0  1474.131579  311.605336  ...  1449.5  1780.25  1980.0\n",
+              "Guadalajara              96.0  1532.708333  294.941668  ...  1585.5  1774.00  1993.0\n",
+              "Las Palmas              108.0  1534.851852  282.516324  ...  1616.0  1793.25  1985.0\n",
+              "Málaga                   95.0  1538.094737  298.804927  ...  1534.0  1811.00  2000.0\n",
+              "La Rioja                 81.0  1447.148148  304.833853  ...  1400.0  1716.00  1997.0\n",
+              "Barcelona                91.0  1473.000000  308.827244  ...  1414.0  1766.00  2000.0\n",
+              "Cantabria                93.0  1508.989247  293.088037  ...  1528.0  1760.00  1992.0\n",
+              "Ciudad                  105.0  1493.428571  273.581828  ...  1457.0  1710.00  1996.0\n",
+              "Granada                  92.0  1497.815217  277.937811  ...  1508.0  1734.75  2000.0\n",
+              "Lugo                     81.0  1488.197531  307.931503  ...  1473.0  1746.00  1997.0\n",
+              "\n",
+              "[10 rows x 8 columns]"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 34
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "57CokAstetwM",
+        "colab_type": "code",
+        "outputId": "74d01c4f-d29f-4ede-b30e-47503121140f",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 345
+        }
+      },
+      "source": [
+        "# Visualización y estadística descriptiva\n",
+        "\n",
+        "df.groupby('state')['randomdata'].describe().sample(6)[\"mean\"].plot(kind=\"bar\")"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "<matplotlib.axes._subplots.AxesSubplot at 0x7f2975fc5ac8>"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 43
+        },
+        {
+          "output_type": "display_data",
+          "data": {
+            "image/png": "iVBORw0KGgoAAAANSUhEUgAAAYAAAAE4CAYAAABSXiSnAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz\nAAALEgAACxIB0t1+/AAAADl0RVh0U29mdHdhcmUAbWF0cGxvdGxpYiB2ZXJzaW9uIDMuMC4zLCBo\ndHRwOi8vbWF0cGxvdGxpYi5vcmcvnQurowAAHe5JREFUeJzt3XucnVV97/HPF2JQUbmYkWqSkqhB\ni6gVB4zaekCOELwFT9UDokRFUz0oKj0q1tPipZ56a71VeZ0oUVAOSD1UaEVpRJRq5TIgguEic7gm\nghnkUhVRgW//eNbAzpBkktl75pm91/f9eu3XPM961t77txkmv73Wsy6yTURE1Ge7tgOIiIh2JAFE\nRFQqCSAiolJJABERlUoCiIioVBJARESlkgAiIiqVBBARUalJE4Ck1ZI2SPrJhPK3SrpK0lpJH+0o\nf4+kUUlXSzqoo3xZKRuVdGxvP0ZERGwrTTYTWNLzgF8BJ9neq5TtD7wXeJHt30p6jO0NkvYETgH2\nBR4HfBvYo7zUT4EXAOuAi4DDbF+xpfeeN2+eFy1aNNXPFhFRpYsvvvhW20OT1ZszWQXb50laNKH4\nzcCHbf+21NlQypcDp5by6ySN0iQDgFHb1wJIOrXU3WICWLRoESMjI5OFGBERHSTdsDX1pnoPYA/g\nTyVdIOl7kvYp5fOBmzrqrStlmyt/EEkrJY1IGhkbG5tieBERMZmpJoA5wK7AUuCdwGmS1IuAbK+y\nPWx7eGho0hZMRERM0aRdQJuxDjjdzQ2ECyXdB8wD1gMLO+otKGVsoTwiIlow1RbA14H9ASTtAcwF\nbgXOBA6VtIOkxcAS4EKam75LJC2WNBc4tNSNiIiWTNoCkHQKsB8wT9I64DhgNbC6DA39HbCitAbW\nSjqN5ubuPcBRtu8tr/MW4Gxge2C17bXT8HkiImIrTToMtE3Dw8POKKCIiG0j6WLbw5PVy0zgiIhK\nJQFERFQqCSAiolJTHQYaEVO06NhvzOj7Xf/hF83o+w365xskaQFERFQqCSAiolJJABERlUoCiIio\nVG4Cx6yTm4gxWw3a/5tpAUREVCoJICKiUkkAERGVGsh7AIPWTxcRMR3SAoiIqFQSQEREpQayC2jQ\npYsrInohLYCIiEolAUREVGrSBCBptaQNZf/fidf+QpIlzSvnkvRpSaOSLpO0d0fdFZKuKY8Vvf0Y\nERGxrbamBfAlYNnEQkkLgQOBGzuKDwaWlMdK4PhSd1eazeSfBewLHCdpl24Cj4iI7kyaAGyfB9y2\niUufAN4FdO4qvxw4yY3zgZ0lPRY4CFhj+zbbtwNr2ERSiYiImTOlewCSlgPrbf94wqX5wE0d5+tK\n2ebKN/XaKyWNSBoZGxubSngREbEVtjkBSHo48JfAX/c+HLC9yvaw7eGhoaHpeIuIiGBqLYAnAIuB\nH0u6HlgAXCLpD4D1wMKOugtK2ebKIyKiJducAGxfbvsxthfZXkTTnbO37VuAM4EjymigpcCdtm8G\nzgYOlLRLufl7YCmLiIiWbM0w0FOAHwJPkrRO0pFbqH4WcC0wCnwe+B8Atm8DPghcVB4fKGUREdGS\nSZeCsH3YJNcXdRwbOGoz9VYDq7cxvoiImCaZCRwRUakkgIiISiUBRERUKgkgIqJSSQAREZVKAoiI\nqFQSQEREpZIAIiIqlQQQEVGpJICIiEolAUREVCoJICKiUkkAERGVSgKIiKhUEkBERKWSACIiKpUE\nEBFRqSSAiIhKbc2ewKslbZD0k46yj0m6StJlkv5J0s4d194jaVTS1ZIO6ihfVspGJR3b+48SERHb\nYmtaAF8Clk0oWwPsZftpwE+B9wBI2hM4FHhKec7nJG0vaXvgs8DBwJ7AYaVuRES0ZNIEYPs84LYJ\nZf9q+55yej6woBwvB061/Vvb1wGjwL7lMWr7Wtu/A04tdSMioiW9uAfweuCb5Xg+cFPHtXWlbHPl\nDyJppaQRSSNjY2M9CC8iIjalqwQg6b3APcDJvQkHbK+yPWx7eGhoqFcvGxERE8yZ6hMlvRZ4MXCA\nbZfi9cDCjmoLShlbKI+IiBZMqQUgaRnwLuCltu/quHQmcKikHSQtBpYAFwIXAUskLZY0l+ZG8Znd\nhR4REd2YtAUg6RRgP2CepHXAcTSjfnYA1kgCON/2m2yvlXQacAVN19BRtu8tr/MW4Gxge2C17bXT\n8HkiImIrTZoAbB+2ieITtlD/Q8CHNlF+FnDWNkUXERHTJjOBIyIqlQQQEVGpJICIiEolAUREVCoJ\nICKiUkkAERGVSgKIiKhUEkBERKWSACIiKpUEEBFRqSSAiIhKJQFERFQqCSAiolJJABERlUoCiIio\nVBJARESlkgAiIiqVBBARUalJE4Ck1ZI2SPpJR9muktZIuqb83KWUS9KnJY1KukzS3h3PWVHqXyNp\nxfR8nIiI2Fpb0wL4ErBsQtmxwDm2lwDnlHOAg4El5bESOB6ahEGzmfyzgH2B48aTRkREtGPSBGD7\nPOC2CcXLgRPL8YnAIR3lJ7lxPrCzpMcCBwFrbN9m+3ZgDQ9OKhERMYOmeg9gN9s3l+NbgN3K8Xzg\npo5660rZ5sofRNJKSSOSRsbGxqYYXkRETKbrm8C2DbgHsYy/3irbw7aHh4aGevWyERExwVQTwM9L\n1w7l54ZSvh5Y2FFvQSnbXHlERLRkqgngTGB8JM8K4IyO8iPKaKClwJ2lq+hs4EBJu5SbvweWsoiI\naMmcySpIOgXYD5gnaR3NaJ4PA6dJOhK4AXhlqX4W8EJgFLgLeB2A7dskfRC4qNT7gO2JN5YjImIG\nTZoAbB+2mUsHbKKugaM28zqrgdXbFF1EREybzASOiKhUEkBERKWSACIiKpUEEBFRqSSAiIhKJQFE\nRFQqCSAiolJJABERlUoCiIioVBJARESlkgAiIiqVBBARUakkgIiISiUBRERUKgkgIqJSSQAREZVK\nAoiIqFRXCUDSOyStlfQTSadIeqikxZIukDQq6auS5pa6O5Tz0XJ9US8+QERETM2UE4Ck+cDRwLDt\nvYDtgUOBjwCfsP1E4HbgyPKUI4HbS/knSr2IiGhJt11Ac4CHSZoDPBy4GXg+8LVy/UTgkHK8vJxT\nrh8gSV2+f0RETNGUE4Dt9cDHgRtp/uG/E7gYuMP2PaXaOmB+OZ4P3FSee0+p/+ipvn9ERHSnmy6g\nXWi+1S8GHgfsCCzrNiBJKyWNSBoZGxvr9uUiImIzuukC+q/AdbbHbP8eOB14LrBz6RICWACsL8fr\ngYUA5fpOwC8mvqjtVbaHbQ8PDQ11EV5ERGxJNwngRmCppIeXvvwDgCuAc4GXlzorgDPK8ZnlnHL9\nO7bdxftHREQXurkHcAHNzdxLgMvLa60C3g0cI2mUpo//hPKUE4BHl/JjgGO7iDsiIro0Z/Iqm2f7\nOOC4CcXXAvtuou7dwCu6eb+IiOidzASOiKhUEkBERKWSACIiKpUEEBFRqSSAiIhKJQFERFQqCSAi\nolJJABERlUoCiIioVBJARESlkgAiIiqVBBARUakkgIiISiUBRERUKgkgIqJSSQAREZVKAoiIqFQS\nQEREpbpKAJJ2lvQ1SVdJulLSsyXtKmmNpGvKz11KXUn6tKRRSZdJ2rs3HyEiIqai2xbAp4Bv2X4y\n8HTgSprN3s+xvQQ4hwc2fz8YWFIeK4Hju3zviIjowpQTgKSdgOcBJwDY/p3tO4DlwIml2onAIeV4\nOXCSG+cDO0t67JQjj4iIrnTTAlgMjAFflPQjSV+QtCOwm+2bS51bgN3K8Xzgpo7nrytlERHRgm4S\nwBxgb+B4288Afs0D3T0A2DbgbXlRSSsljUgaGRsb6yK8iIjYkm4SwDpgne0LyvnXaBLCz8e7dsrP\nDeX6emBhx/MXlLKN2F5le9j28NDQUBfhRUTElkw5Adi+BbhJ0pNK0QHAFcCZwIpStgI4oxyfCRxR\nRgMtBe7s6CqKiIgZNqfL578VOFnSXOBa4HU0SeU0SUcCNwCvLHXPAl4IjAJ3lboREdGSrhKA7UuB\n4U1cOmATdQ0c1c37RURE72QmcEREpZIAIiIqlQQQEVGpJICIiEolAUREVCoJICKiUkkAERGVSgKI\niKhUEkBERKWSACIiKpUEEBFRqSSAiIhKJQFERFQqCSAiolJJABERlUoCiIioVBJARESlkgAiIirV\ndQKQtL2kH0n6l3K+WNIFkkYlfbXsF4ykHcr5aLm+qNv3joiIqetFC+BtwJUd5x8BPmH7icDtwJGl\n/Ejg9lL+iVIvIiJa0lUCkLQAeBHwhXIu4PnA10qVE4FDyvHyck65fkCpHxERLei2BfBJ4F3AfeX8\n0cAdtu8p5+uA+eV4PnATQLl+Z6kfEREtmHICkPRiYIPti3sYD5JWShqRNDI2NtbLl46IiA7dtACe\nC7xU0vXAqTRdP58CdpY0p9RZAKwvx+uBhQDl+k7ALya+qO1VtodtDw8NDXURXkREbMmUE4Dt99he\nYHsRcCjwHduHA+cCLy/VVgBnlOMzyznl+ndse6rvHxER3ZmOeQDvBo6RNErTx39CKT8BeHQpPwY4\ndhreOyIittKcyatMzvZ3ge+W42uBfTdR527gFb14v4iI6F5mAkdEVCoJICKiUkkAERGVSgKIiKhU\nEkBERKWSACIiKpUEEBFRqSSAiIhKJQFERFQqCSAiolJJABERlUoCiIioVBJARESlkgAiIiqVBBAR\nUakkgIiISiUBRERUKgkgIqJSU04AkhZKOlfSFZLWSnpbKd9V0hpJ15Sfu5RySfq0pFFJl0nau1cf\nIiIitl03LYB7gL+wvSewFDhK0p40m72fY3sJcA4PbP5+MLCkPFYCx3fx3hER0aUpJwDbN9u+pBz/\nErgSmA8sB04s1U4EDinHy4GT3Dgf2FnSY6cceUREdKUn9wAkLQKeAVwA7Gb75nLpFmC3cjwfuKnj\naetKWUREtKDrBCDpEcD/A95u+z86r9k24G18vZWSRiSNjI2NdRteRERsRlcJQNJDaP7xP9n26aX4\n5+NdO+XnhlK+HljY8fQFpWwjtlfZHrY9PDQ01E14ERGxBd2MAhJwAnCl7b/vuHQmsKIcrwDO6Cg/\noowGWgrc2dFVFBERM2xOF899LvAa4HJJl5ayvwQ+DJwm6UjgBuCV5dpZwAuBUeAu4HVdvHdERHRp\nygnA9vcBbebyAZuob+Coqb5fRET0VmYCR0RUKgkgIqJSSQAREZVKAoiIqFQSQEREpZIAIiIqlQQQ\nEVGpJICIiEolAUREVCoJICKiUkkAERGVSgKIiKhUEkBERKWSACIiKpUEEBFRqSSAiIhKJQFERFQq\nCSAiolIzngAkLZN0taRRScfO9PtHRERjRhOApO2BzwIHA3sCh0nacyZjiIiIxky3APYFRm1fa/t3\nwKnA8hmOISIimPkEMB+4qeN8XSmLiIgZJtsz92bSy4Fltt9Qzl8DPMv2WzrqrARWltMnAVfPWIAw\nD7h1Bt9vpuXz9bd8vv41059td9tDk1WaMxORdFgPLOw4X1DK7md7FbBqJoMaJ2nE9nAb7z0T8vn6\nWz5f/5qtn22mu4AuApZIWixpLnAocOYMxxAREcxwC8D2PZLeApwNbA+str12JmOIiIjGTHcBYfss\n4KyZft+t1ErX0wzK5+tv+Xz9a1Z+thm9CRwREbNHloKIiKhUEkBERKWSACJmKUlPkLRDOd5P0tGS\ndm47rhgcuQcASNoFWAI8dLzM9nntRRTbQtJj2Ph3d2OL4fSMpEuBYWARzcCJM4Cn2H5hm3H1kqS9\naNYF6/z9ndReRHWpvgUg6Q3AeTRDU99ffr6vzZh6SdJSSRdJ+pWk30m6V9J/tB1XL0h6qaRrgOuA\n7wHXA99sNajeus/2PcDLgM/Yfifw2JZj6hlJxwGfKY/9gY8CL201qB7qh7+96hMA8DZgH+AG2/sD\nzwDuaDeknvoH4DDgGuBhwBtoVmQdBB8ElgI/tb0YOAA4v92Qeur3kg4DVgD/Usoe0mI8vfZymt/Z\nLbZfBzwd2KndkHpq1v/tJQHA3bbvBpC0g+2raNYgGhi2R4Htbd9r+4vAsrZj6pHf2/4FsJ2k7Wyf\nS9NlMiheBzwb+JDt6yQtBr7ccky99Bvb9wH3SHoUsIGNl4rpe7P9b2/GJ4LNQuvKjbWvA2sk3Q7c\n0HJMvXRXWXbjUkkfBW5mcBL/HZIeQdOFd7KkDcCvW46pZ2xfARzdcX4d8JH2Iuq5kfK393ngYuBX\nwA/bDamnZv3fXm4Cd5D0X2iaoN8q+xX0PUm7Az8H5gLvoPl8nyvfTPqapB2BuwEBh9N8tpNLq6Dv\nSVoC/C0Pvkn6+NaCmiaSFgGPsn1Zy6H0TPnb20DTbTcr//aSALh/p7Ld6GgRDdBIkv8GfMP2b9uO\nJbaNpO8DxwGfAF5C0yW0ne2/bjWwHpI0H9idjf/2MgJvhlSfACS9leaP7OfAfaXYtp/WXlS9I+mL\nwPNpukm+StO6uafdqLoj6ZfAZv/Htf2oGQxn2ki62PYzJV1u+6mdZW3H1guSPgL8d+AK4N5SbNt9\nPRJI0uVs+f/PWfNvS+4BNKOAnjQo3QYT2X6dpIfQ7MN8GPBZSWvGN+XpR7YfCSDpgzT9ql/mgW6g\ngRkmCfxW0nbANWUV3fXAI1qOqZcOofnbG7TW6YvLz6PKz/Eb969mC4mhDWkBSOcCL+j3b8WTKUlg\nGU03wvNsz2s5pK5J+rHtp09W1q8k7QNcCexMM+R1J+CjtgdiqKukbwKvsP2rtmOZDpJ+ZPsZE8ou\nsb13WzFNlBYAXAt8V9I3gPu/idj++/ZC6h1JB9M0s/cDvgt8AXhliyH10q8lHQ6cSvPN6jAGaxTQ\nReXwVzSJe9DcRTNC5hw2/ts7evNP6SuS9FzbPygnz2GWjQJKAoAby2NueQyaI2j6/v98AJvarwI+\nVR4GflDKBoKkYeC9PPgm6azpQ+7SmQz2joBHAqsl7UTTRXk78Pp2Q9pY9V1A48p4cga1ORr9R9LV\nwDuBy3lggAK2B2aeShknv0c5vdr279uMZzqUBIDtO9uOZaLqWwBlMaovA7uW81uBI/p9q8pNjJRR\nORfNSIu+Hykj6aE037Kewsbj5GfVt6wujNke2G/IkvYDTqRZw0nAQkkr+n0YqKRX2/6KpGMmlAOz\nq3u5+gRAs1XbMWUZgfH/KT8PPKfNoLo1PlJmwH0ZuAo4CPgAzSigK1uNqLeOk/QFYGIf+enthdRT\nfwccaPtqAEl7AKcA/T7Mdcfyc9b/DVbfBTToI0kAJP0JsMT2FyXNAx5ZlhXoa+OjLCRdZvtpZaTT\nv9le2nZsvSDpK8CTgbVsPEdlIFo447+3ycpi+qQFANdK+is2Hqt7bYvx9FRZcneYZoG7L9Lc6P4K\n8Nw24+qR8f7iO0pX3i3AY1qMp9f2sT1QCxNOMFJaOF8p54cDIy3G01OlRXM8sJvtvSQ9DXip7b9p\nObT7zaohSS15PTAEnF4eQ8yyO/VdehnNGuu/BrD9M/qgabqVVpXNfP6KZjTJFTRryg+Kf5e0Z9tB\nTKM30/zOji6PK0rZoPg88B7KF5WyztGhrUY0QfUtANu307Hi4gD6nW1LMty/gNpAsP2Fcvg9YOAW\nSKPZ6+BSSdfR3AMYv4Hf910kZf2t1bYPB2bNTdEee7jtC8dv/hazasJptQlA0j+z5fU6+no9kg6n\nSfo/wM6S3kjTuvl8yzH1RNkv989otkzsHCf/gbZi6rFZtXZ8L9m+V9LukuYOysq7m3CrpCdQ/p2R\n9HKapUtmjWpvApelnzfL9vdmKpbpJukFwIE03yDPtr2m5ZB6QtK3gDtp1pIfX0wM23/XWlA9IGnX\nLV23fdtMxTKdJJ0E/BFN9939M7hn0zDJbkh6PM0ow+fQTAK7Dni17evbjKtTtQmgk6SHAX84Phwt\n+oOkn9jeq+04eq10+YzP2ZjIg7IfQBmg8CC23z/TsUyn0u26ne1fth3LRNUnAEkvAT4OzLW9WNIf\nAx8YlC6gCRPC5tJsTvHrAZkItopms/TL244lYtzECWATzaYWTrX3ADq8D9iXZqE0bF9a9l4dCJ0T\nwtTcjVpOc3NxEPwJ8NpBvEk6roxyWsLGM537fabsJ22/fXP34Qbgy9eWRtnNqm/cSQDNxuJ3TrhT\nP6t+Sb3iprn39dL0PrbteHrg4LYDmE6S3kCzX8UC4FKaxP1Dmg1++tn4nJuPd5SN/81tqturr2yp\nC0vS22cylskkAcBaSa8Cti97sB4N/HvLMfVM2RJy3HY0k8LubimcnhpfFE3SY+j4hjxA3gbsA5xv\ne39JTwb+d8sx9cICSUttfxZA0oU0828MvLvVyKbfMcAn2w5iXCaCwVtpFhP7LfB/aUaVzKos3aWX\ndDwOAn5J0w3U9yS9VNI1NKMrvkezqNg3Ww2qt+62fTc0Q15tX0Uzo7vfvYuNl4GeS/PFZD/gTW0E\nNINmVQun+haA7bto1lx/b9uxTAfbg7iRyLgP0nSLfLusCbQ/zVIeg2KdpJ2BrwNrJN0ODMJS0HNt\n39Rx/v2yJesvBmmi4mbMqu7ljAKS1tBsS3dHOd8FONX2Qe1G1h1Jn2HLE936fvazpBHbw5J+DDzD\n9n2DtpDfuDJvZSfgW/0+cUrSqO0nbuba/7f9hJmOqZc2sRT7/ZeAh9meNV+8Z00gLZo3/o8/NEtD\nlD7lfte5qNb7gU2Oue5zd5SNfM4DTpa0gQHYErLsc/Am4Ik0m8GcMEgTE4ELJL3R9kYz0iX9OXBh\nSzH1TD8txZ4WgHQx8DLbN5bz3YF/mk0bN3drU5tTD4LSXfAbmntZh9N8Qz65dCf0LUlfpVlA7N9o\nRjrdYPtt7UbVO+UL1tdp7rtdUoqfCewAHGL7523FVpskAGkZzXTt79E00f4UWGn77FYD6yFJlwxS\nQoP7FxP7tu39246l1yRdbvup5XgOcOGg/f4AJD2fZgAGwFrb32kznhpV3QVUJkatBfbmgclRb7d9\na3tRxdYoi4ndJ2mn2bjXapfu3xfX9j0T5qgMjPIPfv7Rb1FaAB3ftgbJhBtRDwfuGr/E4OwJfAbw\nDGANGy8m1tc3uCXdywOfR8DDaH5/A/O7i9mh6hZAcYmkfWxf1HYgvdRPN6K6ML6JDwzWTNLt244h\n6pAEAM8CDpd0A823roFbT2bQSFoOLKh0JmlEzyQBNLNjo7+8i4231ptLM4rkETT7Hv9jG0FF9Jvq\nE0AF68kMok3NJL0NuK2CmaQRPVP9WkAVrCcziHbpPLH9lo7ToRmOZdpI2lHSduV4j/L/6kPajisG\nR/UJgAfWk/mp7cXAAcD57YYUk7ig7G+8kUGZSdrhPOChkuYD/wq8BvhSqxHFQKm+C4hmP4BfSNpO\n0na2z5U0a5ZrjU16B82+Bq9iEzNJW4uq92T7LklHAp+z/VFJl7YdVAyOJIABXU9mkNneADxnwkzS\nbwzgTFJJejbNMhdHlrIMEY2eyUSwAV1PJvqfpOcB/xP4ge2PSHo8zUz1vp7oFrNH9Qmgk6R5wC+c\n/ygRUYFqE4CkpcCHgdtobgR/GZhH0xI4wva3WgwvAklDNHMensLGm8L3+57AMUvUPAroH2j2Vz2F\nZkGqN9j+A+B5wN+2GVhEcTJwFbCYZk+H64GBWrIk2lVzC+BS239cjq+0/Ucd1wZy/fzoL5Iutv1M\nSZeNL00i6SLb+7QdWwyGmkcB3ddx/JsJ1+rMijHbjC8LfbOkFwE/A3ZtMZ4YMDW3AMaX3O1cbpdy\n/lDbmXEZrZL0YppdwRYCnwEeBbzP9j+3GlgMjGoTQEQ/kvR225moGD2RBBDRRyTdaPsP244jBkPN\no4Ai+lHfb3gTs0cSQER/SZM9eqbmUUARs9KE/Zw3ukQzYCGiJ3IPICKiUukCioioVBJARESlkgAi\nIiqVBBCxBZLeLunhvaoXMZvkJnDEFki6Hhi2fWsv6kXMJmkBRBSSdpT0DUk/lvQTSccBjwPOlXRu\nqXO8pBFJayW9v5QdvYl6B0r6oaRLJP1j2XY0YlZJCyCikPRnwDLbbyznOwE/puObvaRdbd8maXvg\nHOBo25d1tgDKznKnAwfb/rWkdwM72P5AG58rYnPSAoh4wOXACyR9RNKf2r5zE3VeKekS4Ec0O3Xt\nuYk6S0v5DyRdCqwAdp+uoCOmKjOBIwrbP5W0N/BC4G8kndN5XdJimk3a97F9u6Qv0bFVY2dVYI3t\nw6Y75ohupAUQUUh6HHCX7a8AHwP2Bn4JPLJUeRTNHhJ3StoNOLjj6Z31zgeeK+mJ5XV3lLTHDHyE\niG2SFkDEA54KfEzSfTS7cb0ZeDbwLUk/s72/pB/R7NN7E/CDjueumlDvtcApknYo1/8X8NOZ+iAR\nWyM3gSMiKpUuoIiISiUBRERUKgkgIqJSSQAREZVKAoiIqFQSQEREpZIAIiIqlQQQEVGp/wT1L38f\nLnl6kwAAAABJRU5ErkJggg==\n",
+            "text/plain": [
+              "<Figure size 432x288 with 1 Axes>"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          }
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "cVkvGxYuc1EE",
+        "colab_type": "text"
+      },
+      "source": [
+        "- Estamos trabajando con **Datos Estructurados**: que sabemos manejar y procesar sin problemas. \n",
+        "- ¿Qué pasa cuando en la **Variedad** entran los **Datos Desestructurados**?\n",
+        "- Hoy gran parte de la ventaja competitiva pasa por utilizar estas \"nuevas\" fuentes de datos. "
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "AIrTqVc0tPKT",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "# Ejemplo de datos semi-estructurados\n",
+        "\n",
+        "# Ficheros de log de los servidores web\n",
+        "logLine = \"172.128.32.13 — — [23/Apr/2017:05:54:36 -0400] GET /seguros/particulares/ HTTP/1.1 403 3985 - Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36!\""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "GsaVf6SVJdHi",
+        "colab_type": "code",
+        "outputId": "aedb35ee-9bec-4db1-ea57-e0e79a306a56",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 33
+        }
+      },
+      "source": [
+        "import re\n",
+        "\n",
+        "myregex = r'\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}'\n",
+        "\n",
+        "ip = re.findall(myregex,logLine)\n",
+        "\n",
+        "print(f\"Se ha realizado una petición a la web de Mapfre desde la IP: {ip[0]}\")"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Se ha realizado una petición a la web de Mapfre desde la IP: 172.128.32.13\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "C9daOgZTtUBC",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "# Ejemplo de datos desestructurados"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "RNYJmksTL7BS",
+        "colab_type": "text"
+      },
+      "source": [
+        "![Bar](https://github.com/raul-arrabales/web-experiments/blob/master/assets/bar.jpg?raw=true)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "21cemLb7MRxw",
+        "colab_type": "text"
+      },
+      "source": [
+        "## INTELIGENCIA ARTIFICIAL"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "ggB5iV9pNFxf",
+        "colab_type": "text"
+      },
+      "source": [
+        "### ¿Qué funcionalidades tiene un cerebro? \n",
+        "- Funciones.\n",
+        "- Procesos. \n",
+        "- Módulos. \n",
+        "- Subsistemas. \n",
+        "- Partes. \n",
+        "\n",
+        "(La IA tiene al menos una disciplina para cada uno de estos elementos)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "dALtUah4NttP",
+        "colab_type": "text"
+      },
+      "source": [
+        "![IA](https://github.com/raul-arrabales/web-experiments/blob/master/assets/ia.jpg?raw=true)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "ghvQWSoxMasP",
+        "colab_type": "text"
+      },
+      "source": [
+        "## *MACHINE LEARNING*"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "lYhnlWnlOeYW",
+        "colab_type": "text"
+      },
+      "source": [
+        "### Modelado Predictivo\n",
+        "\n",
+        "- **X1, X2, X3, ...**: Los datos que ya tengo. \n",
+        "- **Y**: La información que me gustaría tener. \n",
+        "- Crear modelos es aprender la función **Y = f(X1, X2, X3, ...)**"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "gACD4V6gO4KH",
+        "colab_type": "text"
+      },
+      "source": [
+        "**Ejemplo: predicción de la diabetes**\n",
+        "\n",
+        "- **Y**: medida cuantitativa del avance de la enfermedad. \n",
+        "- **X**: índice de masa corporal (IMC).\n",
+        "- Encontrar f, tal que **P(Y) = Y = f(X)**. \n",
+        "- O al menos, que P(Y) se parezca lo máximo posible a Y."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "6357422VPt1f",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "import matplotlib.pyplot as plt\n",
+        "import numpy as np\n",
+        "from sklearn import datasets, linear_model\n",
+        "from sklearn.metrics import mean_squared_error, r2_score"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "ZiQjuHWgPvh3",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "# Cargar el conjunto de datos sobre diabetes\n",
+        "# Fuente de datos: https://www4.stat.ncsu.edu/~boos/var.select/diabetes.html \n",
+        "diabetes = datasets.load_diabetes()"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "NBwHINXjPzTP",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "# Usar una característica como predictora (X1)\n",
+        "# Índice de masa corporal\n",
+        "diabetes_X = diabetes.data[:, np.newaxis, 2]"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "iVpEru8yP5Tf",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "# Partir entre entrenamiento y prueba\n",
+        "diabetes_X_train = diabetes_X[:-20]\n",
+        "diabetes_X_test = diabetes_X[-20:]"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "__jMGyePQF6_",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "# Ídem con la variable Y (diabetes)\n",
+        "diabetes_y_train = diabetes.target[:-20]\n",
+        "diabetes_y_test = diabetes.target[-20:]"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "w2KL8Ow6QU1_",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "# Crear una regresión lineal:\n",
+        "regr = linear_model.LinearRegression()"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "5A2Nmx8KQX43",
+        "colab_type": "code",
+        "outputId": "2f591f7f-c907-4a3a-e2c2-668318ee79fd",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 33
+        }
+      },
+      "source": [
+        "# Entrenar el modelo\n",
+        "regr.fit(diabetes_X_train, diabetes_y_train)"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None, normalize=False)"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 14
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "IyveekuxQdG3",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "# Hacer predicciones usando el modelo\n",
+        "diabetes_y_pred = regr.predict(diabetes_X_test) "
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "IOkpVyhfQi8e",
+        "colab_type": "code",
+        "outputId": "a30b2ab3-2f4f-4a8f-e7aa-f37a9d13c3f1",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 84
+        }
+      },
+      "source": [
+        "# Evaluación del modelo\n",
+        "\n",
+        "print('Coeficiente: \\n', regr.coef_)\n",
+        "print(\"Error cuadrático medio (MSE): %.2f\"\n",
+        "      % mean_squared_error(diabetes_y_test, diabetes_y_pred))\n",
+        "print('Varianza explicada(R2): %.2f' % r2_score(diabetes_y_test, diabetes_y_pred))"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Coeficiente: \n",
+            " [938.23786125]\n",
+            "Error cuadrático medio (MSE): 2548.07\n",
+            "Varianza explicada(R2): 0.47\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "jYRLDgZ_RAPX",
+        "colab_type": "code",
+        "outputId": "0af246aa-ceac-449b-cae6-163b68b4cf52",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 254
+        }
+      },
+      "source": [
+        "# Pintar un diagrama de dispersión con los datos y la recta de regresión\n",
+        "\n",
+        "plt.scatter(diabetes_X_test, diabetes_y_test,  color='black')\n",
+        "plt.plot(diabetes_X_test, diabetes_y_pred, color='blue', linewidth=3)\n",
+        "plt.xticks(())\n",
+        "plt.yticks(())\n",
+        "plt.show()"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "display_data",
+          "data": {
+            "image/png": "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\nBIEMAJb4L/4/ciktfwZ6AAAAAElFTkSuQmCC\n",
+            "text/plain": [
+              "<Figure size 432x288 with 1 Axes>"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          }
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "EpYQiH7EMhDn",
+        "colab_type": "text"
+      },
+      "source": [
+        "## *DEEP LEARNING*"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "8cf_9mPhbhv0",
+        "colab_type": "text"
+      },
+      "source": [
+        "### Modelado Predictivo\n",
+        "\n",
+        "- **X1, X2, X3, ...**: Los datos **desestructurados** que ya tengo. \n",
+        "- **Y**: La información que me gustaría tener. \n",
+        "- Crear modelos es aprender la función **Y = f(X1, X2, X3, ...)**"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "U-W3LBR8TEY3",
+        "colab_type": "text"
+      },
+      "source": [
+        "**Ejemplo: detección de objetos en bares**\n",
+        "\n",
+        "- **Y**: personas que hay en un bar. \n",
+        "- **X**: foto del bar.\n",
+        "- Encontrar f, tal que **P(Y) = Y = f(X)**. \n",
+        "- *f(x)* es una **red de neuronas profunda**."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "MyXbbd3HUFU-",
+        "colab_type": "code",
+        "outputId": "a3b42b85-10ce-4f6e-8e64-b3faa1407336",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 64
+        }
+      },
+      "source": [
+        "from IPython.display import HTML\n",
+        "HTML(\"<h2 style='color:red'>¡Alto! ¡Sin GPU no hay paraíso!</h2>\")"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/html": [
+              "<h2 style='color:red'>¡Alto! ¡Sin GPU no hay paraíso!</h2>"
+            ],
+            "text/plain": [
+              "<IPython.core.display.HTML object>"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 21
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "9ZxS8Ll8UVH2",
+        "colab_type": "code",
+        "outputId": "6971ff12-da60-421e-fce9-ddf1cd456000",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 33
+        }
+      },
+      "source": [
+        "from tensorflow.python.client import device_lib\n",
+        "from IPython.display import HTML\n",
+        "\n",
+        "def get_available_gpus():\n",
+        "    local_device_protos = device_lib.list_local_devices()\n",
+        "    return [x.name for x in local_device_protos if x.device_type == 'GPU']\n",
+        "\n",
+        "gpus = get_available_gpus()\n",
+        "# print(len(gpus))\n",
+        "\n",
+        "if len(gpus) < 1:\n",
+        "  print(\"Apaga y vámonos...\")\n",
+        "else:\n",
+        "  print(\"¡Podemos entrenar profundamente!\")\n",
+        "  print(gpus)"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Apaga y vámonos...\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "m53pzkNSToLe",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "# Detectar personas en el bar\n",
+        "predictions = model.predict(image)"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "1LK_xFZeVi9H",
+        "colab_type": "text"
+      },
+      "source": [
+        "![BarPersonas](https://github.com/raul-arrabales/web-experiments/blob/master/assets/bar_persona.jpg?raw=true)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "e_iYqs6hVuCu",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "# Ídem para copas:"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "m2mIBvOvV1Ut",
+        "colab_type": "text"
+      },
+      "source": [
+        "![BarPersonas](https://github.com/raul-arrabales/web-experiments/blob/master/assets/bar_copa.jpg?raw=true)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "drUPO9CVV60d",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "# Ídem para botellas:"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "3D_VeetfV80l",
+        "colab_type": "text"
+      },
+      "source": [
+        "![BarPersonas](https://github.com/raul-arrabales/web-experiments/blob/master/assets/bar_botella.jpg?raw=true)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "CAo9mwWwT8X9",
+        "colab_type": "text"
+      },
+      "source": [
+        "# El perfil *Data Scientist*"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "796KO2MwJO54",
+        "colab_type": "text"
+      },
+      "source": [
+        "## Qué NO es un *Científico de Datos*:\n",
+        "\n",
+        "- No es un matemático.\n",
+        "- No es un estadístico.\n",
+        "- No es un informático. \n",
+        "- No es un ingeniero. \n",
+        "- No es un arquitecto. \n",
+        "- No es un ejecutivo. \n",
+        "- No es un científico. \n",
+        "- No es un avión. \n",
+        "- No es un hombre. \n",
+        "- No es humano. \n",
+        "- Cobra un sueldo normal. \n",
+        "\n",
+        "\n",
+        "## Qué SÍ es un *Científico de Datos*:\n",
+        "\n",
+        "- Sabe muchas matemáticas. \n",
+        "  - Cálculo, álgebra, matemática discreta, ... \n",
+        "- Sabe mucha estadística. \n",
+        "  - Descriptiva, inferencial, cósmica sideral, ... \n",
+        "- Sabe mucho de investigación. \n",
+        "  - Aplica el método científico. \n",
+        "- Sabe mucho de programación. \n",
+        "  - Sabe R, Python, Scala, Java, C++, Javascript, ...\n",
+        "- Sabe mucho de inteligencia articial.\n",
+        "  - Machine Learning, Deep Learninng, ... \n",
+        "- Tiene un doctorado.\n",
+        "  - O mejor dos doctorados, como Diego.\n",
+        "- Sabe mucho de negocio. \n",
+        "  - Obviamente, de todas las áreas de negocio. \n",
+        "- Sabe mucho de arquitecturas Big Data.\n",
+        "  - Hadoop, Spark, Kafka, Flink, Flank, Flunk, ...  \n",
+        "- Mantiene contacto visual con otras personas.\n",
+        "  - Incluso sin insultarlas. \n",
+        "- Es super guapo/a.\n",
+        "  - Con pelo largo y cuerpo escultural. \n",
+        "- Se conforma con un sueldo normal.\n",
+        "  - Ya que al estar todo el día programando no tiene gastos. \n"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "TjZgFQYOOjy_",
+        "colab_type": "text"
+      },
+      "source": [
+        " \n",
+        " ## ¿Existe este personaje? \n",
+        "![Super Data Scientist](https://github.com/raul-arrabales/web-experiments/blob/master/assets/super-ds.jpg?raw=true)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "hehX3WYJTyF8",
+        "colab_type": "text"
+      },
+      "source": [
+        "## El concepto de *Citizen Data Scientist*\n",
+        "\n",
+        "*Today’s Big Data Hero Doesn’t Wear a Cape: Meet the Citizen Data Scientist*\n",
+        "\n",
+        "![Citizen Data Scientist](https://github.com/raul-arrabales/web-experiments/blob/master/assets/citizen-data-scientists-600x254.png?raw=true)\n",
+        "\n",
+        "## Corresponsales:\n",
+        "- Conexión entre negocio y data science. \n",
+        "- Candidatos a ser los *citizen data scientists*"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "0b_Xvbr9WS_2",
+        "colab_type": "text"
+      },
+      "source": [
+        "## La importancia del Ingeniero de Datos\n",
+        "\n",
+        "![DataEngineer](https://github.com/raul-arrabales/web-experiments/blob/master/assets/data-engineer.jpg?raw=true)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "WYgpj5mcAASi",
+        "colab_type": "text"
+      },
+      "source": [
+        "# Ciclo de Vida: *Advanced Analytics*"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "VhTZeAxq2Cyg",
+        "colab_type": "text"
+      },
+      "source": [
+        "### Definición del Caso de Uso\n",
+        "*Discovery session*\n",
+        "\n"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "eBjwPTDZAJIx",
+        "colab_type": "text"
+      },
+      "source": [
+        "![canvas](https://github.com/raul-arrabales/web-experiments/blob/master/assets/mlcanvas.jpg?raw=true)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "hxU1zj4PaYLm",
+        "colab_type": "text"
+      },
+      "source": [
+        "### Diseño del Producto Mínimo Viable (MVP)\n"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "GetQsnoMdSOW",
+        "colab_type": "text"
+      },
+      "source": [
+        "*Piloto o Prueba de Concepto*\n",
+        "- Necesitamos conjunto de datos. \n",
+        "- Asignación de recursos. \n",
+        "- Infraestructura para ejecución. \n",
+        "- Estimación de coste. \n",
+        "- Decisión go/no go. "
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "7mo6CNFjazg9",
+        "colab_type": "text"
+      },
+      "source": [
+        "### Acceso e ingesta de datos"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "J07-uu40dXIE",
+        "colab_type": "text"
+      },
+      "source": [
+        "- ¿De dónde obtenemos datos de calidad?\n",
+        "- ¿Tienen sesgos?\n",
+        "- Necesitamos generalizar.\n",
+        "- Necesitamos que tengan las características de aprendizaje. \n",
+        "- Dificultad de encontrar el dataset de entrenamiento para **Aprendizaje Supervisado**"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "ZsAPOQ7WbNsd",
+        "colab_type": "text"
+      },
+      "source": [
+        "![Cierres](https://github.com/raul-arrabales/web-experiments/blob/master/assets/cierres-metalicos.png?raw=true)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "v4mqXfhfbos1",
+        "colab_type": "text"
+      },
+      "source": [
+        "### Creación del modelo predictivo\n",
+        "*Diseño de la red de neuronas convolucional*\n"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "Zp2r4bvqcIX8",
+        "colab_type": "code",
+        "outputId": "9ddfc03a-6131-4554-dd32-8ee46241408e",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 455
+        }
+      },
+      "source": [
+        "import keras\n",
+        "import tensorflow as tf\n",
+        "\n",
+        "# crear el modelo -> f(x)\n",
+        "deep_model_pooling = keras.Sequential()\n",
+        "deep_model_pooling.add(keras.layers.Conv2D(filters=64, kernel_size=2, padding='same', \n",
+        "                                 activation='relu', input_shape=(28,28,1))) \n",
+        "deep_model_pooling.add(keras.layers.MaxPooling2D(pool_size=2))\n",
+        "deep_model_pooling.add(keras.layers.Conv2D(filters=32, kernel_size=2, padding='same', \n",
+        "                                 activation='relu'))\n",
+        "deep_model_pooling.add(keras.layers.MaxPooling2D(pool_size=2))\n",
+        "deep_model_pooling.add(keras.layers.Flatten())\n",
+        "deep_model_pooling.add(keras.layers.Dense(256, activation='relu'))\n",
+        "deep_model_pooling.add(keras.layers.Dense(10, activation='softmax'))\n",
+        "\n",
+        "# Ver un resumen del modelo\n",
+        "deep_model_pooling.summary()"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/tensorflow/python/framework/op_def_library.py:263: colocate_with (from tensorflow.python.framework.ops) is deprecated and will be removed in a future version.\n",
+            "Instructions for updating:\n",
+            "Colocations handled automatically by placer.\n"
+          ],
+          "name": "stdout"
+        },
+        {
+          "output_type": "stream",
+          "text": [
+            "Using TensorFlow backend.\n"
+          ],
+          "name": "stderr"
+        },
+        {
+          "output_type": "stream",
+          "text": [
+            "_________________________________________________________________\n",
+            "Layer (type)                 Output Shape              Param #   \n",
+            "=================================================================\n",
+            "conv2d_1 (Conv2D)            (None, 28, 28, 64)        320       \n",
+            "_________________________________________________________________\n",
+            "max_pooling2d_1 (MaxPooling2 (None, 14, 14, 64)        0         \n",
+            "_________________________________________________________________\n",
+            "conv2d_2 (Conv2D)            (None, 14, 14, 32)        8224      \n",
+            "_________________________________________________________________\n",
+            "max_pooling2d_2 (MaxPooling2 (None, 7, 7, 32)          0         \n",
+            "_________________________________________________________________\n",
+            "flatten_1 (Flatten)          (None, 1568)              0         \n",
+            "_________________________________________________________________\n",
+            "dense_1 (Dense)              (None, 256)               401664    \n",
+            "_________________________________________________________________\n",
+            "dense_2 (Dense)              (None, 10)                2570      \n",
+            "=================================================================\n",
+            "Total params: 412,778\n",
+            "Trainable params: 412,778\n",
+            "Non-trainable params: 0\n",
+            "_________________________________________________________________\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "qWY93s22cTwU",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "# Entrenar y evaluar el modelo\n",
+        "train_and_evaluate(model(), \n",
+        "                   keras.optimizers.SGD(lr=0.0001, \n",
+        "                                        decay=1e-6, \n",
+        "                                        momentum=0.1, \n",
+        "                                        nesterov=True),\n",
+        "                   epochs=10)"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "_PcVgHb_cr71",
+        "colab_type": "text"
+      },
+      "source": [
+        "Train on 60000 samples, validate on 10000 samples<br>\n",
+        "Epoch 1/10<br>\n",
+        "60000/60000 [==============================] - 4s 62us/step - loss: 2.3081 - acc: 0.1125 - val_loss: 2.3008 - val_acc: 0.1712<br>\n",
+        "Epoch 2/10<br>\n",
+        "60000/60000 [==============================] - 3s 57us/step - loss: 2.3027 - acc: 0.1237 - val_loss: 2.2962 - val_acc: 0.1935<br>\n",
+        "Epoch 3/10<br>\n",
+        "60000/60000 [==============================] - 3s 57us/step - loss: 2.2979 - acc: 0.1342 - val_loss: 2.2917 - val_acc: 0.2172<br>\n",
+        "Epoch 4/10<br>\n",
+        "60000/60000 [==============================] - 4s 58us/step - loss: 2.2926 - acc: 0.1467 - val_loss: 2.2873 - val_acc: 0.2520<br>\n",
+        "Epoch 5/10<br>\n",
+        "60000/60000 [==============================] - 3s 57us/step - loss: 2.2876 - acc: 0.1552 - val_loss: 2.2829 - val_acc: 0.2767<br>\n",
+        "Epoch 6/10<br>\n",
+        "60000/60000 [==============================] - 3s 56us/step - loss: 2.2823 - acc: 0.1687 - val_loss: 2.2784 - val_acc: 0.2960<br>\n",
+        "Epoch 7/10<br>\n",
+        "60000/60000 [==============================] - 4s 59us/step - loss: 2.2776 - acc: 0.1790 - val_loss: 2.2736 - val_acc: 0.3072<br>\n",
+        "Epoch 8/10<br>\n",
+        "60000/60000 [==============================] - 3s 57us/step - loss: 2.2728 - acc: 0.1923 - val_loss: 2.2687 - val_acc: 0.3144<br>\n",
+        "Epoch 9/10<br>\n",
+        "60000/60000 [==============================] - 3s 56us/step - loss: 2.2671 - acc: 0.2024 - val_loss: 2.2634 - val_acc: 0.3196<br>\n",
+        "Epoch 10/10<br>\n",
+        "60000/60000 [==============================] - 4s 58us/step - loss: 2.2615 - acc: 0.2100 - val_loss: 2.2578 - val_acc: 0.3245<br>\n",
+        "10000/10000 [==============================] - 1s 54us/step\n",
+        "Test accuracy: 0.3245<br>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "R5ZgYvlTdbrs",
+        "colab_type": "text"
+      },
+      "source": [
+        "### Productivización del modelo"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "K9taWjFLdf-s",
+        "colab_type": "text"
+      },
+      "source": [
+        "- Infraestructura. \n",
+        "- Escalado. \n",
+        "- Soporte. \n",
+        "- Tipo de despliegue:\n",
+        "  - Microservicio. \n",
+        "  - Cliente / Servidor. \n",
+        "  - Backend / Frontend. \n",
+        "  - Dispositivo móvil. \n",
+        "  - Aplicación web. "
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "4G3ScY3Pehl1",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "# Invocar a un servicio en nube con TF Serving\n",
+        "import numpy as np\n",
+        "data = []\n",
+        "for image in images:\n",
+        "    with open(image, \"rb\") as image_file:\n",
+        "        encoded_string = base64.b64encode(image_file.read()).decode(\"utf-8\") \n",
+        "    data.append({'images': {'b64': encoded_string}})\n",
+        "    \n",
+        "payload = {\n",
+        "    'signature_name': 'serving_predict',\n",
+        "    'instances': data\n",
+        "}\n",
+        "\n",
+        "url = 'http://{}:{}/v1/models/{}:predict'.format(host, port, model_name)\n",
+        "print(url)\n",
+        "r = requests.post(url, json=payload)\n",
+        "result = json.loads(r.content)\n",
+        "\n",
+        "for image, r in zip(images, result['predictions']):\n",
+        "    print(image)\n",
+        "    index = np.argsort(r)[::-1][:5]\n",
+        "    for i in index:\n",
+        "        print('   ', class_names[i], ': ', r[i])"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "kIBcJs0vephM",
+        "colab_type": "text"
+      },
+      "source": [
+        "http://localhost:8601/v1/models/inception_v3_classification:predict<br>\n",
+        "**./gato.jpg**<br>\n",
+        "    Egyptian_cat :  0.622138<br>\n",
+        "    tabby :  0.120564<br>\n",
+        "    lynx :  0.0938355<br>\n",
+        "    tiger_cat :  0.0253258<br>\n",
+        "    Persian_cat :  0.00718336<br>\n",
+        "**./perro.jpg**<br>\n",
+        "    Border_collie :  0.695624<br>\n",
+        "    collie :  0.175222<br>\n",
+        "    Brittany_spaniel :  0.004021<br>\n",
+        "    Bernese_mountain_dog :  0.00323301<br>\n",
+        "    papillon :  0.00274941<br>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "3wnn6lIddmQE",
+        "colab_type": "text"
+      },
+      "source": [
+        "### Mantenimiento y Aprendizaje Continuo"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "pxR2m7CCdqfc",
+        "colab_type": "text"
+      },
+      "source": [
+        "- Proceso de obtención de *nuevos datos de entrenamiento*. \n",
+        "- Mejora del proceso. \n",
+        "- **Transfer Learning** en la organización. "
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "uJKz6mrvAW7p",
+        "colab_type": "text"
+      },
+      "source": [
+        "# Conclusiones"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "csuxtbW3Amcx",
+        "colab_type": "text"
+      },
+      "source": [
+        "## ¿Qué es lo más importante para qué un modelo funcione?"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "OTN9QdTSBsvp",
+        "colab_type": "text"
+      },
+      "source": [
+        "- Los modelos predictivos **no existen \"en el vacío\"**.\n",
+        "  - Sin datos, no tengo nada.  \n",
+        "- Siempre se cumple la **regla G.I.G.O.**\n",
+        "  - Sin datos de calidad, no tengo nada. \n",
+        "- Lo importante es el **proceso de negocio**. \n",
+        "  - Un modelo que nadie usa, no sirve para nada. \n",
+        "- Aplicar el **método científico** no implica que vaya a funcionar, implica **rigor** en el proceso y los resultados.\n",
+        "  - Combinar con el pragmatismo *agile*."
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "uOvJtuP2AjZ5",
+        "colab_type": "text"
+      },
+      "source": [
+        "## Cultura de la Organización"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "4K1OZxVDFN5p",
+        "colab_type": "text"
+      },
+      "source": [
+        "- Una **organización inteligente** combina: \n",
+        "  - Inteligencia Humana. \n",
+        "  - Inteligencia Artificial.\n",
+        "- Se requiere **interlocución efectiva** entre todos los profesionales.\n",
+        "  - Poner en valor a los *Citizen Data Scientists*.\n",
+        "  - La transversalidad como ventaja competitiva. "
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "TxqxvK0tAsRp",
+        "colab_type": "text"
+      },
+      "source": [
+        "## Tuit Final\n",
+        "\n",
+        "### El ingrediente secreto"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "bF4_2FOiBSyq",
+        "colab_type": "text"
+      },
+      "source": [
+        "![tuit](https://github.com/raul-arrabales/web-experiments/blob/master/assets/tuit_elena.jpg?raw=true)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "9y9fsHTMBc_4",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    }
+  ]
+}
