@@ -2,6 +2,8 @@
 # Databricks CE Cloud Practice
 # Raul Arrabales
 
+# Listing files (already uploaded to the distributed file system
+dbutils.fs.ls("FileStore/tables/")
 
 # Step by step (explain each step)
 
