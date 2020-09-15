@@ -28,7 +28,6 @@ df1 = sqlContext.createDataFrame(datosEdad, ['nombre', 'edad'])
 
 # Apply filter to age data:
 filtroEdad = df1.filter(df1.edad >= 30).collect()
-print filtroEdad
 display(filtroEdad)
 
 # Sample height data
@@ -42,13 +41,13 @@ display(df3)
 
 # Explore different queries
 df4 = df1.join(df2, 'nombre').select(df1.nombre, df2.altura)
-print(df4.collect())
+df4.collect()
 
 df5 = df1.join(df2, 'nombre').select('nombre', 'altura') 
-print(df5.collect())
+df5.collect()
 
 df6 = df1.join(df2, 'nombre', 'right_outer').select('nombre')
-print(df6.collect())
+df6.collect()
 
 
 
