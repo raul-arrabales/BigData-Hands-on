@@ -23,10 +23,49 @@ from pyspark.ml.clustering import KMeans
 from pyspark.ml.feature import StringIndexer
 from pyspark.ml.feature import VectorAssembler
 
+# File location and type
+file_location = "/FileStore/tables/Business_Food.csv"
+file_type = "csv"
+
+# CSV options
+infer_schema = "false"
+first_row_is_header = "true"
+delimiter = ","
+
+# The applied options are for CSV files. For other file types, these will be ignored.
+df = spark.read.format(file_type) \
+  .option("inferSchema", infer_schema) \
+  .option("header", first_row_is_header) \
+  .option("sep", delimiter) \
+  .load(file_location)
+
+display(df)
+
+# Create a view or table
+
+temp_table_name = "Business_Food_csv"
+
+df.createOrReplaceTempView(temp_table_name)
+
+%sql
+
+/* Query the created temp table in a SQL cell */
+
+select * from `Business_Food_csv`
+
+# With this registered as a temp view, it will only be available to this particular notebook. If you'd like other users to be able to query this table, you can also create a table from the DataFrame.
+# Once saved, this table will persist across cluster restarts as well as allow various users across different notebooks to query this data.
+# To do so, choose your table name and uncomment the bottom line.
+
+permanent_table_name = "Business_Food_csv"
+
+# df.write.format("parquet").saveAsTable(permanent_table_name)
+
+
+
 # Adopt shcema to read csv data set in the schema. 
-csv = sqlContext.sql("Select * from foodbusinesses")
-csv.describe()
-csv.printSchema()
+df.describe()
+df.printSchema()
 
 # If data types were wrong:
 from pyspark.sql.types import DoubleType 
@@ -52,7 +91,7 @@ def indexStringColumns(df, cols):
 dfnumeric = indexStringColumns(data, ["Take-out","GoodFor_lunch", "GoodFor_dinner", "GoodFor_breakfast"])
 
 # Check encoding
-dfnumeric.show(5)
+dfnumeric.show(5) 
 
 # One-hot encoding maps a column of label indices to a column of binary vectors, with at most a single one-value.
 def oneHotEncodeColumns(df, cols):
