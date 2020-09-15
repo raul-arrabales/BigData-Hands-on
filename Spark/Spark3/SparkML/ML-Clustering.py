@@ -2,23 +2,12 @@
 # Databricks CE Cloud Practice
 # Raul Arrabales / Conscious-Robots.com 
 
-# See files in DBFS
-dbutils.fs.ls('/') 
-dbutils.fs.ls('/FileStore/tables')
-dbutils.fs.ls('/FileStore/tables/1x1xr57q1502297004187/') 
-
-# Also accesible as a table (if table declared during upload to CE)
-%sql select * from kmeans_table 
-
-# Applying KMeans (new ml lib - not mllib)
-from pyspark.ml.clustering import KMeans
-
-# Loading data: 
-# This is the old way, load into RDD
-# dataset = sc.textFile('/FileStore/tables/1x1xr57q1502297004187/kmeans_data.txt')
-
 # Reading CSV to a df - Change to spark.read.csv
-kmeans_df = sqlContext.read.format("com.databricks.spark.csv").option("header", "false").option("delimiter"," ").load("/FileStore/tables/1x1xr57q1502297004187/kmeans_data.txt")
+url = "https://raw.githubusercontent.com/raul-arrabales/BigData-Hands-on/master/Spark/Spark3/data/kmeans_data.txt"
+from pyspark import SparkFiles
+spark.sparkContext.addFile(url)
+
+kmeans_df = spark.read.csv("file://"+SparkFiles.get("kmeans_data.txt"), header=False, inferSchema=True, sep=" ")
 
 # Check schema
 kmeans_df.printSchema()
@@ -26,10 +15,8 @@ kmeans_df.printSchema()
 # Check data
 display(kmeans_df) 
 
-# Need to infer correctly the schema. Data are doubles, not string
-kmeans_df = sqlContext.read.format("com.databricks.spark.csv") \
-  .option("header", "false").option("delimiter"," ").option("inferschema", "true") \
-  .load("/FileStore/tables/1x1xr57q1502297004187/kmeans_data.txt")
+# Applying KMeans (new ml lib - not mllib)
+from pyspark.ml.clustering import KMeans
   
 # Prepare data for training (see later the explanation about ML Pipelines)
 from pyspark.ml.feature import VectorAssembler
